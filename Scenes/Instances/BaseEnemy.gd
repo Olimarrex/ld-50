@@ -3,6 +3,8 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (int) var damage = 1
 export (int) var maxHealth = 100
+export (NodePath) var spright = null
+
 
 var velocity = Vector2()
 var health = maxHealth
@@ -14,6 +16,10 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("player"):
 			inflictDamage(collision)
+	if dir[0]>0:
+		get_node(spright).set_flip_h( false )
+	else:
+		get_node(spright).set_flip_h( true )
 
 func inflictDamage(entity):
 	get_parent().get_parent().get_node("Player/KinematicBody2D").takeDamage(damage)
