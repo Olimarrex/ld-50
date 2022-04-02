@@ -1,9 +1,11 @@
 extends Area2D
 
+var speed = 750		
+var damage = 35 	# How much damage the bullet inflicts to an entity upon hitting it.
+var penetration = 2 # How many enemies the bullet can hit before it despawns.
 
-var speed = 750
-var damage = 35
 var derecshon = Vector2(1,0)
+var entetiesHit = 0
 
 func _physics_process(delta):
 	position += transform.x * speed * delta * derecshon[0]
@@ -12,8 +14,12 @@ func _physics_process(delta):
 func _on_Bullet_body_entered(body):
 	if body.is_in_group("mobs"):
 		body.takeDamage(damage)
-		get_parent().queue_free()
+		entetiesHit += 1
+		if entetiesHit == penetration: 
+			die()
 
-
+func die():
+	get_parent().queue_free()
+	
 func _on_Timer_timeout():
 	get_parent().queue_free()
