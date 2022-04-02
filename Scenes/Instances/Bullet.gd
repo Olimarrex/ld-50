@@ -2,6 +2,7 @@ extends Area2D
 
 
 var speed = 750
+var damage = 35
 var derecshon = Vector2(1,0)
 
 func _physics_process(delta):
@@ -10,7 +11,7 @@ func _physics_process(delta):
 
 func _on_Bullet_body_entered(body):
 	if body.is_in_group("mobs"):
-		body.queue_free()
+		body.takeDamage(damage)
 		get_parent().queue_free()
 
 
