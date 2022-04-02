@@ -59,5 +59,6 @@ func _input(event):
 
 func _on_Node2D_add_time(time):
 	currentTime += time
+	$CoinPickupSound.pitch_scale = rand_range(0.9, 1.3);
 	$CoinPickupSound.play();
 	updateTime()

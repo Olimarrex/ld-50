@@ -40,7 +40,7 @@ func shoot():
 	bull.position = self.position
 	get_parent().add_child(bull)
 	i += 1;
-	$SoundShoot.pitch_scale = 0.9 + sin(i / 2.0) / 10.0;
+	$SoundShoot.pitch_scale = 0.4 + sin(i / 3.0) / 10.0;
 	$SoundShoot.play();
 var i= 0;
 

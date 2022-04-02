@@ -34,6 +34,7 @@ drag_margin_v_enabled = true
 
 [node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D"]
 stream = ExtResource( 3 )
+volume_db = -14.455
 
 [node name="pickup" type="Area2D" parent="."]
 
