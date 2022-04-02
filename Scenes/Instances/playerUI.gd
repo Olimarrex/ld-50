@@ -55,3 +55,8 @@ func _input(event):
 		else:
 			self.get_node("Shop").hide()
 		get_tree().paused = paused
+
+
+func _on_Node2D_add_time(time):
+	currentTime += time
+	updateTime()
