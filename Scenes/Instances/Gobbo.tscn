@@ -11,8 +11,12 @@ radius = 21.0238
 
 [node name="Gobbo" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["mobs"]]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=[
+"mobs",
+]]
 script = ExtResource( 2 )
+speed = 100
+maxHealth = 300
 spright = NodePath("Gobbo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
@@ -32,3 +36,6 @@ value = 100.0
 texture_under = ExtResource( 4 )
 texture_over = ExtResource( 5 )
 texture_progress = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

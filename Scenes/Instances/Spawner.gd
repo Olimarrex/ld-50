@@ -3,33 +3,36 @@ extends Node2D
 export var currentWave = 0;
 export var enemyNodes = {
 	"gobbo": "res://Scenes/Instances/Gobbo.tscn",
-	#"zombo": "Hai"
+	"ghost": "res://Scenes/Instances/Ghost.tscn",
 };
 var loadedEnemies = {};
 var waves = [
 	{
-		"gobbo": 5,
-		#"zombo": 1
+		"gobbo": 5
 	},
 	{
-		"gobbo": 10,
-		#"zombo": 1
+		"gobbo": 10
 	},
 	{
-		"gobbo": 50,
-		#"zombo": 1
+		"gobbo": 15,
+		"ghost": 15
 	},
 	{
-		"gobbo": 10,
-		#"zombo": 1
+		"gobbo": 10
 	},
 	{
-		"gobbo": 10,
-		#"zombo": 1
+		"gobbo": 70
 	},
 	{
-		"gobbo": 50,
-		#"zombo": 1
+		"gobbo": 10
+	},
+	{
+		"gobbo": 60,
+		"ghost": 100,
+	},
+	{
+		"gobbo": 60,
+		"ghost": 100,
 	}
 ];
 

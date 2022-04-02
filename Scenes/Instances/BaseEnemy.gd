@@ -8,7 +8,12 @@ export (NodePath) var spright = null
 
 
 var velocity = Vector2()
-var health = maxHealth
+var health;
+
+func _ready():
+	health = maxHealth;
+	get_node("enemyHealthBar").max_value = maxHealth;
+	get_node("enemyHealthBar").value = maxHealth;
 
 func _physics_process(delta):
 	var dir = global_position.direction_to(get_parent().get_parent().get_node("Player/KinematicBody2D").get_position());

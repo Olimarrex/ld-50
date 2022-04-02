@@ -17,35 +17,35 @@
 [ext_resource path="res://Sounds/SFX/bigupCoin.wav" type="AudioStream" id=15]
 [ext_resource path="res://Art/UI/shopOptionBackgroundHighlighted.png" type="Texture" id=16]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 50
 font_data = ExtResource( 11 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 30
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
 font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 20
+size = 30
 font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 30
+size = 20
 font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 20
-font_data = ExtResource( 11 )
-
-[sub_resource type="DynamicFont" id=7]
 size = 30
 font_data = ExtResource( 11 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 11 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=8]
 size = 30
 font_data = ExtResource( 11 )
 
@@ -85,8 +85,8 @@ texture = ExtResource( 7 )
 [node name="shopTitle" type="Label" parent="Shop/VBoxContainer/HBoxContainer/titleBackground"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 2 )
 text = "SHOP"
 align = 1
 valign = 1
@@ -124,8 +124,8 @@ rect_min_size = Vector2( 0, 15 )
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 69.0
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 3 )
 text = "Upgrade #1"
 align = 1
 valign = 1
@@ -158,8 +158,8 @@ rect_min_size = Vector2( 0, 120 )
 margin_top = 325.0
 margin_right = 300.0
 margin_bottom = 356.0
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 4 )
 text = "3 Sec"
 align = 1
 valign = 1
@@ -202,8 +202,8 @@ rect_min_size = Vector2( 0, 15 )
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 69.0
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 5 )
 text = "Upgrade #2"
 align = 1
 valign = 1
@@ -235,8 +235,8 @@ rect_min_size = Vector2( 0, 120 )
 margin_top = 325.0
 margin_right = 300.0
 margin_bottom = 356.0
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 6 )
 text = "1 Sec"
 align = 1
 valign = 1
@@ -279,8 +279,8 @@ rect_min_size = Vector2( 0, 15 )
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 69.0
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 7 )
 text = "Upgrade #3"
 align = 1
 valign = 1
@@ -312,8 +312,8 @@ rect_min_size = Vector2( 0, 120 )
 margin_top = 325.0
 margin_right = 300.0
 margin_bottom = 356.0
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 8 )
 text = "5 Sec"
 align = 1
 valign = 1
@@ -351,8 +351,8 @@ texture = ExtResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 5.0
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
-custom_fonts/font = SubResource( 1 )
 align = 1
 valign = 1
 
@@ -361,5 +361,4 @@ stream = ExtResource( 13 )
 
 [node name="SoundBigupCoin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/chooseOption1" to="." method="chooseOption1"]
