@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/funkydungeon.ogg-070e0f72cfbb91b60798edbb4b431a33.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/funkydungeon.ogg"
+dest_files=[ "res://.import/funkydungeon.ogg-070e0f72cfbb91b60798edbb4b431a33.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
