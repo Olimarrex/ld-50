@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/awdada.png-9e9052b86462ca01173badbe00163f43.stex"
+path="res://.import/Gobbo.png-d0171409648da77e72e8c4eeba4a8ca8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/awdada.png"
-dest_files=[ "res://.import/awdada.png-9e9052b86462ca01173badbe00163f43.stex" ]
+source_file="res://Art/Sprites/Gobbo.png"
+dest_files=[ "res://.import/Gobbo.png-d0171409648da77e72e8c4eeba4a8ca8.stex" ]
 
 [params]
 
