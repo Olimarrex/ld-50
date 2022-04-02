@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Instances/pick_up_able.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0
@@ -8,6 +9,7 @@ radius = 32.0
 [node name="clock" type="Node2D" groups=["pick_up"]]
 
 [node name="Area2D" type="Area2D" parent="." groups=["pick_up"]]
+script = ExtResource( 2 )
 
 [node name="Icon" type="Sprite" parent="Area2D" groups=["pick_up"]]
 texture = ExtResource( 1 )
