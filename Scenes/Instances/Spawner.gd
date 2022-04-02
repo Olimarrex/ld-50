@@ -19,10 +19,6 @@ func _ready():
 
 
 func _on_Timer_timeout():
-<<<<<<< Updated upstream
-	#print_tree();
-	get_parent().add_child(gobbo.instance());
-=======
 	var test = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
 	for i in range(1, 12):
 		var x = rand_range(test.x - 1200, test.x + 1200);
@@ -33,4 +29,3 @@ func _on_Timer_timeout():
 		var instance2 = gobbo.instance();
 		instance2.get_node('KinematicBody2D').set_position(Vector2(test.x + 1000 * (((i % 2) * 2) - 1), y));
 		get_parent().add_child(instance2);
->>>>>>> Stashed changes
