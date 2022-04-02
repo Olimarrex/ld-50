@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/healthBarProgress.png-16a420db658e4ca24c267aca7fd479df.stex"
+path="res://.import/enemyHealthProgress.png-03870b40531b9a3f9b7adf1711790f03.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/healthBarProgress.png"
-dest_files=[ "res://.import/healthBarProgress.png-16a420db658e4ca24c267aca7fd479df.stex" ]
+source_file="res://Art/UI/enemyHealthProgress.png"
+dest_files=[ "res://.import/enemyHealthProgress.png-03870b40531b9a3f9b7adf1711790f03.stex" ]
 
 [params]
 
