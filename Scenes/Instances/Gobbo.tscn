@@ -13,6 +13,7 @@ radius = 21.0238
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["mobs"]]
 script = ExtResource( 2 )
+spright = NodePath("Gobbo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" groups=["mobs"]]
 shape = SubResource( 1 )
