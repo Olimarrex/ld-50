@@ -7,6 +7,7 @@ var minutes
 var seconds
 
 func _ready():
+	$Shop.hide()
 	timer = Timer.new()
 	self.add_child(timer)
 	timer.connect("timeout", self, "countdown")
@@ -39,3 +40,6 @@ func updateTime():
 			$Time.text = str(minutes) + ":0" + str(seconds)
 		else:
 			$Time.text = str(minutes) + ":" + str(seconds)
+
+func chooseOption1():
+	print("dmg")
