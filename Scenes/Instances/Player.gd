@@ -2,6 +2,10 @@ extends KinematicBody2D
 
 export (int) var speed = 200
 
+func _ready():
+	get_node("Camera2D").make_current ( )
+
+
 var velocity = Vector2()
 
 func get_input():
