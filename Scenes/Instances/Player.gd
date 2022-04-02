@@ -70,7 +70,7 @@ func _physics_process(delta):
 
 func _on_pickup_area_entered(collision):
 	if collision.is_in_group("pick_up"):
-		collision.targit = self
+		collision.target = self
 		
 
 

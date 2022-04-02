@@ -10,7 +10,7 @@ export (NodePath) var spright = null
 var velocity = Vector2()
 var health = maxHealth
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var dir = global_position.direction_to(get_parent().get_parent().get_node("Player/KinematicBody2D").get_position());
 	velocity = move_and_slide(dir * speed)
 	for i in get_slide_count():
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	else:
 		get_node(spright).set_flip_h( true )
 
-func inflictDamage(entity):
+func inflictDamage(_entity):
 	get_parent().get_parent().get_node("Player/KinematicBody2D").takeDamage(damage)
 	get_parent().get_parent().get_node("CanvasLayer").get_node("playerUI").get_node("healthBar").value -= damage
 	
