@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BossAppear.wav-46437c1e8bc825e7fe31af782442e597.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/BossAppear.wav"
+dest_files=[ "res://.import/BossAppear.wav-46437c1e8bc825e7fe31af782442e597.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
