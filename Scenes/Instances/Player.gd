@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (int) var speed = 200
-export (float) var shootCooldown = 0.1 # Time in seconds in between each shots. Minimum time is one bullet per frame.
+export (float) var shootCooldown = 0.06 # Time in seconds in between each shots. Minimum time is one bullet per frame.
 
 var bullet
 var velocity = Vector2()
