@@ -14,7 +14,6 @@ func _on_Timer_timeout():
 		return
 		
 	var test = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
-	for i in range(1, 25):
 	for i in range(1, 2):
 		var x = rand_range(test.x - 1200, test.x + 1200);
 		var y = rand_range(test.y - 800, test.y + 800);
