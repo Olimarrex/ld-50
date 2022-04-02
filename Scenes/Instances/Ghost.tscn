@@ -11,12 +11,14 @@ radius = 21.0238
 
 [node name="Ghost" type="Node2D"]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["mobs"]]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=[
+"mobs",
+]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
+speed = 100
 damage = 2
-maxHealth = 50
 pickUpTime = 5
 spright = NodePath("Ghost")
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shopTitleBackground.png-362171b9f5b570185ef65920eada39bb.stex"
+path="res://.import/abilityUIUnderEmpty.png-5f067c478895ca07b33dae3f16707842.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/shopTitleBackground.png"
-dest_files=[ "res://.import/shopTitleBackground.png-362171b9f5b570185ef65920eada39bb.stex" ]
+source_file="res://Art/UI/abilityUIUnderEmpty.png"
+dest_files=[ "res://.import/abilityUIUnderEmpty.png-5f067c478895ca07b33dae3f16707842.stex" ]
 
 [params]
 
