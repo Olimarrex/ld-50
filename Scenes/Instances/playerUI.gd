@@ -59,4 +59,5 @@ func _input(event):
 
 func _on_Node2D_add_time(time):
 	currentTime += time
+	$CoinPickupSound.play();
 	updateTime()
