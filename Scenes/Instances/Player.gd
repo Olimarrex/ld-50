@@ -1,10 +1,12 @@
 extends KinematicBody2D
 
+export (int) var maxHealth = 1000
 export (int) var speed = 200
 export (float) var shootCooldown = 0.06 # Time in seconds in between each shots. Minimum time is one bullet per frame.
 
 var bullet
 var velocity = Vector2()
+var health = maxHealth
 var currentShootCooldown = 0
 
 func _ready():
@@ -37,6 +39,17 @@ func shoot():
 	bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
 	bull.position = self.position
 	get_parent().add_child(bull)
+
+func takeDamage(dmg):
+	print("Player took " +  str(dmg) + " damage")
+	health -= dmg
+	if health <= 0:
+		die()
+		
+func die():
+	print("Player has died")
+	# game over screen()
+	get_tree().paused = true
 
 func _physics_process(delta):
 	if currentShootCooldown > 0:
