@@ -5,8 +5,11 @@ var currentTime = null
 var timer
 var minutes
 var seconds
+var paused = false
+
 
 func _ready():
+	$Shop.hide()
 	timer = Timer.new()
 	self.add_child(timer)
 	timer.connect("timeout", self, "countdown")
@@ -39,3 +42,18 @@ func updateTime():
 			$Time.text = str(minutes) + ":0" + str(seconds)
 		else:
 			$Time.text = str(minutes) + ":" + str(seconds)
+
+func chooseOption1():
+	print("dmg")
+
+
+func _input(event):
+	if Input.is_action_pressed("pause"):
+		paused = not paused
+		if paused: 
+			self.get_node("Shop").show()
+		else:
+			self.get_node("Shop").hide()
+
+		
+		get_tree().paused = paused

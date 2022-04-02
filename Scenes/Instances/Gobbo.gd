@@ -4,19 +4,13 @@ export (int) var speed = 200
 
 var velocity = Vector2()
 
-func get_input():
-	velocity = Vector2()
-	if Input.is_action_pressed("right"):
-		velocity.x += 1
-	if Input.is_action_pressed("left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("down"):
-		velocity.y += 1
-	if Input.is_action_pressed("up"):
-		velocity.y -= 1
-	velocity = velocity.normalized() * speed
+
 
 func _physics_process(delta):
 	var dir = global_position.direction_to(get_parent().get_parent().get_node('Player/KinematicBody2D').get_position());
-	get_input()
-	velocity = move_and_slide(dir * speed)
+	velocity  = move_and_slide(dir * speed)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("player"):
+			get_parent().get_parent().get_node("CanvasLayer").get_node("playerUI").get_node("healthBar").value -= 1
+
