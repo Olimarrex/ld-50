@@ -28,4 +28,3 @@ texture = ExtResource( 3 )
 
 [node name="Spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 187, 246 )
-pathToNode = "res://Scenes/Instances/Gobbo.tscn"
