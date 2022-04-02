@@ -1,6 +1,7 @@
 extends Node
 
-export (String) var activeAbility = "IceBurst"
+
+export(String, "IceBurst", "TimeSuck") var activeAbility
 
 
 func _ready():

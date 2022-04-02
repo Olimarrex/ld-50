@@ -15,7 +15,6 @@ radius = 21.0238
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 2 )
-speed = 300
 damage = 2
 maxHealth = 50
 pickUpTime = 5
