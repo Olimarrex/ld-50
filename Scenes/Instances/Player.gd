@@ -30,7 +30,7 @@ func get_input():
 		attemptShoot()
 	if Input.is_action_pressed("ability"):
 		attemptAbility()
-				
+
 func attemptShoot():
 	if currentShootCooldown <= 0:
 		currentShootCooldown = shootCooldown
@@ -44,7 +44,7 @@ func shoot():
 	i += 1;
 	$SoundShoot.pitch_scale = 0.4 + sin(i / 3.0) / 10.0;
 	$SoundShoot.play();
-var i= 0;
+var i = 0;
 
 func attemptAbility():
 	get_node("Abilities").attemptShoot()

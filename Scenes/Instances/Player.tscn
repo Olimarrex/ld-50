@@ -38,11 +38,16 @@ drag_margin_v_enabled = true
 stream = ExtResource( 3 )
 volume_db = -14.455
 
-[node name="Abilities" type="Node" parent="KinematicBody2D"]
+[node name="Abilities" type="Node2D" parent="KinematicBody2D"]
 script = ExtResource( 4 )
 
-[node name="IceBurst" type="Node" parent="KinematicBody2D/Abilities"]
+[node name="IceBurst" type="Node2D" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 5 )
+
+[node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D/Abilities/IceBurst"]
+stream = ExtResource( 3 )
+volume_db = -14.455
+pitch_scale = 4.0
 
 [node name="pickup" type="Area2D" parent="."]
 
