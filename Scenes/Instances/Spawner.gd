@@ -9,7 +9,7 @@ extends Node2D
 var gobbo;
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print('test');
+	#print('test');
 	gobbo = preload("res://Scenes/Instances/Gobbo.tscn");
 
 
@@ -19,5 +19,5 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	print_tree();
+	#print_tree();
 	get_parent().add_child(gobbo.instance());

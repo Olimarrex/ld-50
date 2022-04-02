@@ -1,6 +1,6 @@
 extends Control
 
-var startingTime = 64
+var startingTime = 10
 var currentTime = null
 var timer
 var minutes
@@ -15,12 +15,16 @@ func _ready():
 	timer.start()
 
 func countdown():
-	if currentTime == null:
+	if currentTime == 1:
+		self.get_parent().get_parent().call("death")
+		timer.stop()
+	elif currentTime == null:
 		currentTime = startingTime
 		currentTime -= 1
+		updateTime()
 	else:
 		currentTime -= 1
-	updateTime()
+		updateTime()
 
 func updateTime():
 	minutes = int(currentTime/60)
