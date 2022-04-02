@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Art/Sprites/Wizo.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Instances/Player.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/SFX/laserShoot.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 423.011
@@ -30,5 +31,14 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D" groups=["player"]]
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+
+[node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D"]
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[node name="pickup" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickup"]
+shape = SubResource( 2 )
 
 [connection signal="area_entered" from="KinematicBody2D/pickup" to="KinematicBody2D" method="_on_pickup_area_entered"]

@@ -13,13 +13,9 @@ func _on_Timer_timeout():
 	if (nodeToSpawn == null):
 		return
 		
-	var test = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
-	for i in range(1, 2):
-		var x = rand_range(test.x - 1200, test.x + 1200);
-		var y = rand_range(test.y - 800, test.y + 800);
+	var cameraPos = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
+	for i in range(1, 25):
+		var a = deg2rad(rand_range(0, 360));
 		var instance = nodeToSpawn.instance();
-		instance.get_node('KinematicBody2D').set_position(Vector2(x, test.y + 800 * (((i % 2) * 2) - 1)));
+		instance.get_node('KinematicBody2D').set_position(cameraPos + (Vector2(1, 0).rotated(a) * rand_range(1000, 1200)));
 		get_parent().add_child(instance);
-		var instance2 = nodeToSpawn.instance();
-		instance2.get_node('KinematicBody2D').set_position(Vector2(test.x + 1000 * (((i % 2) * 2) - 1), y));
-		get_parent().add_child(instance2);

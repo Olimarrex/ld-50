@@ -39,6 +39,10 @@ func shoot():
 	bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
 	bull.position = self.position
 	get_parent().add_child(bull)
+	i += 1;
+	$SoundShoot.pitch_scale = 0.9 + sin(i / 2.0) / 10.0;
+	$SoundShoot.play();
+var i= 0;
 
 func takeDamage(dmg):
 	print("Player took " +  str(dmg) + " damage")
