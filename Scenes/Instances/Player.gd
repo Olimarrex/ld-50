@@ -7,16 +7,17 @@ var velocity = Vector2()
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("right"):
+		get_node( "Wizo" ).set_flip_h( false )
 		velocity.x += 1
 	if Input.is_action_pressed("left"):
+		get_node( "Wizo" ).set_flip_h( true )
 		velocity.x -= 1
 	if Input.is_action_pressed("down"):
 		velocity.y += 1
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
-	if Input.is_action_pressed("shoot"):
-		get_node( "Wizo" ).set_flip_h( true )
+
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
