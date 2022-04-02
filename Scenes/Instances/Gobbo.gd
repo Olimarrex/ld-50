@@ -13,4 +13,4 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("player"):
 			get_parent().get_parent().get_node("CanvasLayer").get_node("playerUI").get_node("healthBar").value -= 1
-			print("I collided with ", collision.collider.name)
+

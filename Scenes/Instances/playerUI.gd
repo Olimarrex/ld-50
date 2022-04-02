@@ -5,6 +5,8 @@ var currentTime = null
 var timer
 var minutes
 var seconds
+var paused = false
+
 
 func _ready():
 	$Shop.hide()
@@ -43,3 +45,15 @@ func updateTime():
 
 func chooseOption1():
 	print("dmg")
+
+
+func _input(event):
+	if Input.is_action_pressed("pause"):
+		paused = not paused
+		if paused: 
+			self.get_node("Shop").show()
+		else:
+			self.get_node("Shop").hide()
+
+		
+		get_tree().paused = paused

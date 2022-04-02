@@ -9,6 +9,8 @@ func _ready():
 
 var velocity = Vector2()
 
+
+		
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("right"):
@@ -22,9 +24,6 @@ func get_input():
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
-	if Input.is_action_pressed("pause"):
-		self.get_parent().get_parent().get_node("CanvasLayer/playerUI/Shop").show()
-		get_tree().paused = true
 	if Input.is_action_pressed("shoot"):
 		var bull = bullet.instance()
 		bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
