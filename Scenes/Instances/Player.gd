@@ -1,16 +1,16 @@
 extends KinematicBody2D
 
 export (int) var speed = 200
+export (float) var shootCooldown = 0.1 # Time in seconds in between each shots. Minimum time is one bullet per frame.
+
 var bullet
+var velocity = Vector2()
+var currentShootCooldown = 0
 
 func _ready():
 	get_node("Camera2D").make_current ( )
 	bullet = preload("res://Scenes/Instances/bullet.tscn")
 
-var velocity = Vector2()
-
-
-		
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed("right"):
@@ -25,15 +25,24 @@ func get_input():
 		velocity.y -= 1
 	velocity = velocity.normalized() * speed
 	if Input.is_action_pressed("shoot"):
-		var bull = bullet.instance()
-		bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
-		bull.position = self.position
-		get_parent().add_child(bull)
+		attemptShoot()
+
+func attemptShoot():
+	if currentShootCooldown <= 0:
+		currentShootCooldown = shootCooldown
+		shoot()
+
+func shoot():
+	var bull = bullet.instance()
+	bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
+	bull.position = self.position
+	get_parent().add_child(bull)
 
 func _physics_process(delta):
+	if currentShootCooldown > 0:
+		currentShootCooldown -= delta
 	get_input()
 	velocity = move_and_slide(velocity)
-
 
 func _on_pickup_area_entered(colider):
 	pass
