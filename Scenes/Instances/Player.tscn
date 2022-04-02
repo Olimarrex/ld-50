@@ -5,7 +5,7 @@
 [ext_resource path="res://Sounds/SFX/laserShoot.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 423.011
+radius = 50.0
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 26.0

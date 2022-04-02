@@ -1,6 +1,6 @@
 extends Node2D
 
-
+export(int, 1, 60) var time = 1
 signal add_time
 
 # Called when the node enters the scene tree for the first time.
@@ -11,5 +11,5 @@ func _ready():
 
 
 func _on_Area2D_pick_up():
-	emit_signal("add_time", 10)
+	emit_signal("add_time", time)
 
