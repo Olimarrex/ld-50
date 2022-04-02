@@ -4,17 +4,22 @@
 [ext_resource path="res://Scenes/Instances/Player.gd" type="Script" id=2]
 [ext_resource path="res://Sounds/SFX/laserShoot.wav" type="AudioStream" id=3]
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 423.011
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 26.0
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 100.0
 
 [node name="Player" type="Node2D" groups=["player"]]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["player"]]
 script = ExtResource( 2 )
 speed = 250
+
+[node name="pickup" type="Area2D" parent="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/pickup"]
+shape = SubResource( 2 )
 
 [node name="Wizo" type="Sprite" parent="KinematicBody2D" groups=["player"]]
 scale = Vector2( 2, 2 )
@@ -36,4 +41,4 @@ bus = "SFX"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup"]
 shape = SubResource( 2 )
 
-[connection signal="area_entered" from="pickup" to="KinematicBody2D" method="_on_pickup_area_entered"]
+[connection signal="area_entered" from="KinematicBody2D/pickup" to="KinematicBody2D" method="_on_pickup_area_entered"]

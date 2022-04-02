@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (int) var speed = 200
-export (float) var shootCooldown = 0.1 # Time in seconds in between each shots. Minimum time is one bullet per frame.
+export (float) var shootCooldown = 0.06 # Time in seconds in between each shots. Minimum time is one bullet per frame.
 
 var bullet
 var velocity = Vector2()
@@ -48,5 +48,9 @@ func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 
-func _on_pickup_area_entered(colider):
-	pass
+
+func _on_pickup_area_entered(collision):
+	if collision.is_in_group("pick_up"):
+		collision.targit = self
+
+

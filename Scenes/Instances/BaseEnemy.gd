@@ -16,7 +16,8 @@ func _physics_process(delta):
 			get_parent().get_parent().get_node("CanvasLayer").get_node("playerUI").get_node("healthBar").value -= damage
 
 func takeDamage(dmg):
-	health -= dmg 
+	health -= dmg
+	$enemyHealthBar.value = health
 	if health <= 0:
 		die()
 		
