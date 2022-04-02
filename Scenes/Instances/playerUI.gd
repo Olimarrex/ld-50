@@ -34,26 +34,24 @@ func updateTime():
 	seconds = ((float(currentTime)/float(60)) - float(minutes)) * float(60)
 	if minutes < 10:
 		if seconds < 10:
-			$Time.text = "0" + str(minutes) + ":0" + str(seconds)
+			$timerBackground/Time.text = "0" + str(minutes) + ":0" + str(seconds)
 		else:
-			$Time.text = "0" + str(minutes) + ":" + str(seconds)
+			$timerBackground/Time.text = "0" + str(minutes) + ":" + str(seconds)
 	else:
 		if seconds < 10:
-			$Time.text = str(minutes) + ":0" + str(seconds)
+			$timerBackground/Time.text = str(minutes) + ":0" + str(seconds)
 		else:
-			$Time.text = str(minutes) + ":" + str(seconds)
+			$timerBackground/Time.text = str(minutes) + ":" + str(seconds)
 
 func chooseOption1():
 	print("dmg")
 
 
 func _input(event):
-	if Input.is_action_pressed("pause"):
+	if Input.is_action_just_released("pause"):
 		paused = not paused
 		if paused: 
 			self.get_node("Shop").show()
 		else:
 			self.get_node("Shop").hide()
-
-		
 		get_tree().paused = paused
