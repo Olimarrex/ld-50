@@ -17,5 +17,6 @@ func get_input():
 	velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
+	var dir = global_position.direction_to(get_parent().get_parent().get_node('Player/KinematicBody2D').get_position());
 	get_input()
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(dir * speed)
