@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ghostings.ogg-2d760414ccca85d0198e109b3f2205da.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/ghostings.ogg"
+dest_files=[ "res://.import/ghostings.ogg-2d760414ccca85d0198e109b3f2205da.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
