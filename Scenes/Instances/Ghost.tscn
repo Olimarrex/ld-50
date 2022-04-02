@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 21.0238
 
-[node name="Ghost" type="Node2D" groups=["mobs"]]
+[node name="Ghost" type="Node2D"]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["mobs"]]
 collision_layer = 2
@@ -24,7 +24,7 @@ spright = NodePath("Ghost")
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" groups=["mobs"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 1 )
 
 [node name="enemyHealthBar" type="TextureProgress" parent="KinematicBody2D"]
