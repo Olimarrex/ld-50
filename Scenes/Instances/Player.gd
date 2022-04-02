@@ -28,6 +28,7 @@ func get_input():
 	velocity = velocity.normalized() * speed
 	if Input.is_action_pressed("shoot"):
 		attemptShoot()
+
 	if Input.is_action_pressed("ability"):
 		attemptAbility()
 
@@ -70,5 +71,7 @@ func _physics_process(delta):
 func _on_pickup_area_entered(collision):
 	if collision.is_in_group("pick_up"):
 		collision.targit = self
+		
+
 
 

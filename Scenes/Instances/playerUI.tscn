@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Art/UI/healthBarOver.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Art/UI/timerBackground.png" type="Texture" id=12]
 [ext_resource path="res://Sounds/SFX/pickupCoin.wav" type="AudioStream" id=13]
 [ext_resource path="res://Scenes/Instances/Shop.gd" type="Script" id=14]
+[ext_resource path="res://Sounds/SFX/bigupCoin.wav" type="AudioStream" id=15]
+[ext_resource path="res://Art/UI/shopOptionBackgroundHighlighted.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
@@ -171,6 +173,7 @@ rect_min_size = Vector2( 0, 15 )
 [node name="chooseOption1" type="TextureButton" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture_hover = ExtResource( 16 )
 
 [node name="MarginContainer" type="MarginContainer" parent="Shop/VBoxContainer/HBoxContainer2"]
 margin_left = 436.0
@@ -244,6 +247,11 @@ margin_right = 300.0
 margin_bottom = 375.0
 rect_min_size = Vector2( 0, 15 )
 
+[node name="chooseOption2" type="TextureButton" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_hover = ExtResource( 16 )
+
 [node name="MarginContainer2" type="MarginContainer" parent="Shop/VBoxContainer/HBoxContainer2"]
 margin_left = 794.0
 margin_right = 844.0
@@ -316,6 +324,11 @@ margin_right = 300.0
 margin_bottom = 375.0
 rect_min_size = Vector2( 0, 15 )
 
+[node name="chooseOption3" type="TextureButton" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_hover = ExtResource( 16 )
+
 [node name="healthBar" type="TextureProgress" parent="."]
 margin_left = 359.0
 margin_top = 650.0
@@ -345,5 +358,8 @@ valign = 1
 
 [node name="CoinPickupSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+
+[node name="SoundBigupCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
 
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/chooseOption1" to="." method="chooseOption1"]

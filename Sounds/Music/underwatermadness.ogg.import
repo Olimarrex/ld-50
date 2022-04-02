@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/underwatermadness.ogg-bb3b27d21afef2fd3710fd0f970475d6.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Music/underwatermadness.ogg"
+dest_files=[ "res://.import/underwatermadness.ogg-bb3b27d21afef2fd3710fd0f970475d6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
