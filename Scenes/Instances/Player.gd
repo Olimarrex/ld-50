@@ -29,6 +29,10 @@ func get_input():
 	if Input.is_action_pressed("shoot"):
 		attemptShoot()
 
+	if Input.is_action_pressed("ability"):
+		attemptAbility()
+
+
 func attemptShoot():
 	if currentShootCooldown <= 0:
 		currentShootCooldown = shootCooldown
@@ -43,6 +47,9 @@ func shoot():
 	$SoundShoot.pitch_scale = 0.4 + sin(i / 3.0) / 10.0;
 	$SoundShoot.play();
 var i= 0;
+
+func attemptAbility():
+	get_node("Abilities").attemptShoot()
 
 func takeDamage(dmg):
 	print("Player took " +  str(dmg) + " damage")
@@ -65,5 +72,7 @@ func _physics_process(delta):
 func _on_pickup_area_entered(collision):
 	if collision.is_in_group("pick_up"):
 		collision.targit = self
+		
+
 
 
