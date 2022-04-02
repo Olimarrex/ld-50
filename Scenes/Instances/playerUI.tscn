@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Art/UI/healthBarOver.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Art/UI/timerBackground.png" type="Texture" id=12]
 [ext_resource path="res://Sounds/SFX/pickupCoin.wav" type="AudioStream" id=13]
 [ext_resource path="res://Scenes/Instances/Shop.gd" type="Script" id=14]
+[ext_resource path="res://Sounds/SFX/bigupCoin.wav" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
@@ -345,5 +346,8 @@ valign = 1
 
 [node name="CoinPickupSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+
+[node name="SoundBigupCoin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
 
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/chooseOption1" to="." method="chooseOption1"]

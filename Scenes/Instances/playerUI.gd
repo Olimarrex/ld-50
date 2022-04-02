@@ -46,9 +46,18 @@ func updateTime():
 func chooseOption1():
 	print("dmg")
 
-
+var lastPickup = OS.get_system_time_secs();
+var pickupCount = 1;
 func _on_Node2D_add_time(time):
-	currentTime += time
-	$CoinPickupSound.pitch_scale = rand_range(0.9, 1.3);
+	var pickupTime = OS.get_system_time_secs();
+	if pickupTime < lastPickup + 1:
+		pickupCount += 1;
+	else:
+		pickupCount = 0;
+	currentTime += time;
+	$CoinPickupSound.pitch_scale = 1 + fmod((pickupCount / 30.0), 1.8);
+	if pickupCount > 2 && pickupCount % 30 == 0:
+		$SoundBigupCoin.play();
 	$CoinPickupSound.play();
 	updateTime()
+	lastPickup = pickupTime;
