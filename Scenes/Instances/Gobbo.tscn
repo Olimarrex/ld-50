@@ -7,18 +7,17 @@
 [ext_resource path="res://Art/UI/enemyHealthOver.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 21.0238
+radius = 12.0416
 
-[node name="Gobbo" type="Node2D"]
+[node name="Gobbo" type="Node2D" groups=["mobs"]]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["mobs"]]
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
-position = Vector2( 1, -2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" groups=["mobs"]]
 shape = SubResource( 1 )
 
-[node name="Gobbo" type="Sprite" parent="KinematicBody2D"]
+[node name="Gobbo" type="Sprite" parent="KinematicBody2D" groups=["mobs"]]
 position = Vector2( 5, -13 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
