@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Art/UI/healthBarOver.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Art/UI/movementUpgrade.png" type="Texture" id=10]
 [ext_resource path="res://Font/Thempo New St.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Art/UI/timerBackground.png" type="Texture" id=12]
+[ext_resource path="res://Sounds/SFX/pickupCoin.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=2]
 size = 50
@@ -339,5 +340,9 @@ custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 1 )
 align = 1
 valign = 1
+
+[node name="CoinPickupSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+bus = "SFX"
 
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/chooseOption1" to="." method="chooseOption1"]
