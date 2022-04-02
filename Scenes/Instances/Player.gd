@@ -28,9 +28,16 @@ func get_input():
 	velocity = velocity.normalized() * speed
 	if Input.is_action_pressed("shoot"):
 		attemptShoot()
+
 	if Input.is_action_pressed("ability"):
 		attemptAbility()
 				
+				
+	if Input.is_action_pressed("ui_accept"):
+		pickUpAll()
+	
+	
+
 func attemptShoot():
 	if currentShootCooldown <= 0:
 		currentShootCooldown = shootCooldown
@@ -70,5 +77,10 @@ func _physics_process(delta):
 func _on_pickup_area_entered(collision):
 	if collision.is_in_group("pick_up"):
 		collision.targit = self
+		
+func pickUpAll():
+	var pick_ups = get_tree().get_nodes_in_group("pick_up")
+	for i in pick_ups:
+		i.targit = self
 
 

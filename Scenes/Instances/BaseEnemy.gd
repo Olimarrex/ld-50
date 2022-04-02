@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (int) var damage = 1
 export (int) var maxHealth = 100
+export (int) var pickUpTime = 1
 export (NodePath) var spright = null
 
 
@@ -33,6 +34,7 @@ func takeDamage(dmg):
 		
 func die():
 	var pickup = load("res://Scenes/Instances/clock.tscn").instance()
-	pickup.get_node("Area2D").set_position(position)
+	pickup.time = pickUpTime
+	pickup.get_node("Area2D").set_position(position + get_parent().position)
 	get_parent().get_parent().add_child(pickup)
 	get_parent().queue_free()
