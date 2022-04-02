@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Art/UI/healthBarOver.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
@@ -16,6 +16,11 @@
 [ext_resource path="res://Scenes/Instances/Shop.gd" type="Script" id=14]
 [ext_resource path="res://Sounds/SFX/bigupCoin.wav" type="AudioStream" id=15]
 [ext_resource path="res://Art/UI/shopOptionBackgroundHighlighted.png" type="Texture" id=16]
+[ext_resource path="res://Art/UI/abilityUIBorder.png" type="Texture" id=17]
+[ext_resource path="res://Art/UI/abilityUIProgress.png" type="Texture" id=18]
+[ext_resource path="res://Art/UI/abilityUIUnderEmpty.png" type="Texture" id=19]
+[ext_resource path="res://Art/UI/basicAttackUIEmpty.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Instances/abilityBar.gd" type="Script" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -85,8 +90,8 @@ texture = ExtResource( 7 )
 [node name="shopTitle" type="Label" parent="Shop/VBoxContainer/HBoxContainer/titleBackground"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "SHOP"
 align = 1
 valign = 1
@@ -124,8 +129,8 @@ rect_min_size = Vector2( 0, 15 )
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 69.0
-custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Upgrade #1"
 align = 1
 valign = 1
@@ -158,8 +163,8 @@ rect_min_size = Vector2( 0, 120 )
 margin_top = 325.0
 margin_right = 300.0
 margin_bottom = 356.0
-custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 3 )
 text = "3 Sec"
 align = 1
 valign = 1
@@ -202,8 +207,8 @@ rect_min_size = Vector2( 0, 15 )
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 69.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Upgrade #2"
 align = 1
 valign = 1
@@ -235,8 +240,8 @@ rect_min_size = Vector2( 0, 120 )
 margin_top = 325.0
 margin_right = 300.0
 margin_bottom = 356.0
-custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 5 )
 text = "1 Sec"
 align = 1
 valign = 1
@@ -279,8 +284,8 @@ rect_min_size = Vector2( 0, 15 )
 margin_top = 24.0
 margin_right = 300.0
 margin_bottom = 69.0
-custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 6 )
 text = "Upgrade #3"
 align = 1
 valign = 1
@@ -312,8 +317,8 @@ rect_min_size = Vector2( 0, 120 )
 margin_top = 325.0
 margin_right = 300.0
 margin_bottom = 356.0
-custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 7 )
 text = "5 Sec"
 align = 1
 valign = 1
@@ -358,8 +363,8 @@ texture = ExtResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 5.0
-custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 8 )
 text = "00:00"
 align = 1
 valign = 1
@@ -369,4 +374,23 @@ stream = ExtResource( 13 )
 
 [node name="SoundBigupCoin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
+
+[node name="abilityBar" type="TextureProgress" parent="."]
+margin_left = 1128.0
+margin_top = 569.0
+margin_right = 1260.0
+margin_bottom = 700.0
+texture_under = ExtResource( 19 )
+texture_over = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+fill_mode = 5
+script = ExtResource( 21 )
+
+[node name="basicAttack" type="TextureRect" parent="."]
+margin_left = 1050.0
+margin_top = 634.0
+margin_right = 1126.0
+margin_bottom = 710.0
+texture = ExtResource( 20 )
+
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/chooseOption1" to="." method="chooseOption1"]
