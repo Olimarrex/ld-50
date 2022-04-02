@@ -27,7 +27,6 @@ func get_input():
 		get_tree().paused = true
 	if Input.is_action_pressed("shoot"):
 		var bull = bullet.instance()
-		print((get_global_mouse_position() - position).normalized())
 		bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
 		bull.position = self.position
 		get_parent().add_child(bull)

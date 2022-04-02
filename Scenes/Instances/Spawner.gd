@@ -20,7 +20,7 @@ func _ready():
 
 func _on_Timer_timeout():
 	var test = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
-	for i in range(1, 12):
+	for i in range(1, 25):
 		var x = rand_range(test.x - 1200, test.x + 1200);
 		var y = rand_range(test.y - 800, test.y + 800);
 		var instance = gobbo.instance();
