@@ -26,4 +26,7 @@ func takeDamage(dmg):
 		die()
 		
 func die():
+	var pickup = load("res://Scenes/Instances/clock.tscn").instance()
+	pickup.get_node("Area2D").set_position(position)
+	get_parent().get_parent().add_child(pickup)
 	get_parent().queue_free()

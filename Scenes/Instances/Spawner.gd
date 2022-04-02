@@ -5,7 +5,7 @@ var nodeToSpawn
 
 
 func _ready():
-	nodeToSpawn = load(pathToNode);
+	nodeToSpawn = load(pathToNode)
 	if nodeToSpawn == null:
 		print("Error: Spawner does not have a reference to the node it is set to spawn")
 
