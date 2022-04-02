@@ -8,14 +8,9 @@
 
 config_version=4
 
-_global_script_classes=[  ]
-_global_script_class_icons={
-}
-
 [application]
 
 config/name="Ld- 50"
-run/main_scene="res://Scenes/Instances/test.tscn"
 config/icon="res://icon.png"
 
 [display]
