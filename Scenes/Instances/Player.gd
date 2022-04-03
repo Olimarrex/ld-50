@@ -51,7 +51,6 @@ func attemptAbility():
 	get_node("Abilities").attemptShoot()
 
 func takeDamage(dmg):
-	print("Player took " +  str(dmg) + " damage")
 	health -= dmg
 	if health <= 0:
 		die()
