@@ -1,12 +1,10 @@
 extends Control
 
-var startingTime = 100
+export (int) var startingTime = 3
 var currentTime = null
 var timer
 var minutes
 var seconds
-
-
 
 func _ready():
 	currentTime = startingTime;
@@ -50,7 +48,7 @@ func generateOption1():
 	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text)
 	currentShop.append(chosenUpgrade["name"])
 	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text = chosenUpgrade["name"]
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost.text = str(chosenUpgrade["cost"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost.text = str(chosenUpgrade["cost"]) + " Seconds"
 	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer/option1Sprite.texture = load(chosenUpgrade["resource"])
 
 func generateOption2():
@@ -62,7 +60,7 @@ func generateOption2():
 	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text)
 	currentShop.append(chosenUpgrade["name"])
 	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text = chosenUpgrade["name"]
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost.text = str(chosenUpgrade["cost"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost.text = str(chosenUpgrade["cost"]) + " Seconds"
 	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/HBoxContainer/option2Sprite.texture = load(chosenUpgrade["resource"])
 
 func generateOption3():
@@ -74,11 +72,11 @@ func generateOption3():
 	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text)
 	currentShop.append(chosenUpgrade["name"])
 	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text = chosenUpgrade["name"]
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost.text = str(chosenUpgrade["cost"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost.text = str(chosenUpgrade["cost"]) + " Seconds"
 	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/HBoxContainer/option3Sprite.texture = load(chosenUpgrade["resource"])
 
 func refreshShop():
-	if currentTime >= 5:
+	if currentTime > 5:
 		generateOption1()
 		generateOption2()
 		generateOption3()
@@ -88,44 +86,47 @@ func refreshShop():
 func chooseOption1():
 	for i in array:
 		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text:
-			if i["type"] == "Ability":
-				self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
-				currentAbility = i["name"]
-				if $abilityBar.timer != null:
-					$abilityBar.timer.stop()
-			elif i["type"] == "Passive":
-				currentPassives.append(i["name"])
-			if currentTime >= i["cost"]:
+			if currentTime > i["cost"]:
 				updateTime(-i["cost"])
-	generateOption1()
+				if i["type"] == "Ability":
+					self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
+					currentAbility = i["name"]
+					$abilityBar.texture_under = load(i["icon"])
+					if $abilityBar.timer != null:
+						$abilityBar.timer.stop()
+				elif i["type"] == "Passive":
+					currentPassives.append(i["name"])
+				generateOption1()
 
 func chooseOption2():
 	for i in array:
 		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text:
-			if i["type"] == "Ability":
-				self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
-				currentAbility = i["name"]
-				if $abilityBar.timer != null:
-					$abilityBar.timer.stop()
-			elif i["type"] == "Passive":
-				currentPassives.append(i["name"])
-			if currentTime >= i["cost"]:
+			if currentTime > i["cost"]:
 				updateTime(-i["cost"])
-	generateOption2()
-	
+				if i["type"] == "Ability":
+					self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
+					currentAbility = i["name"]
+					$abilityBar.texture_under = load(i["icon"])
+					if $abilityBar.timer != null:
+						$abilityBar.timer.stop()
+				elif i["type"] == "Passive":
+					currentPassives.append(i["name"])
+				generateOption2()
+
 func chooseOption3():
 	for i in array:
 		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text:
-			if i["type"] == "Ability":
-				self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
-				currentAbility = i["name"]
-				if $abilityBar.timer != null:
-					$abilityBar.timer.stop()
-			elif i["type"] == "Passive":
-				currentPassives.append(i["name"])
-			if currentTime >= i["cost"]:
+			if currentTime > i["cost"]:
 				updateTime(-i["cost"])
-	generateOption3()
+				if i["type"] == "Ability":
+					self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
+					currentAbility = i["name"]
+					$abilityBar.texture_under = load(i["icon"])
+					if $abilityBar.timer != null:
+						$abilityBar.timer.stop()
+				elif i["type"] == "Passive":
+					currentPassives.append(i["name"])
+				generateOption3()
 
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;

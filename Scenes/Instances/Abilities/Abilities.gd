@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(String, "Ice Burst", "Time Magnet", "Explosion", "Teleport") var activeAbility
+export(String, "Empty", "Ice Burst", "Time Magnet", "Explosion", "Teleport") var activeAbility
 
 
 func _ready():

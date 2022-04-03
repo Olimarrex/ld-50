@@ -8,10 +8,16 @@ var bullet
 var velocity = Vector2()
 var health = maxHealth
 var currentShootCooldown = 0
+var playerUI
+var deathScreenUI
 
 func _ready():
 	get_node("Camera2D").make_current ( )
 	bullet = preload("res://Scenes/Instances/bullet.tscn")
+	deathScreenUI = preload("res://Scenes/Instances/deathScreen.tscn")
+	playerUI = get_tree().get_current_scene().get_node("CanvasLayer/playerUI")
+	if playerUI == null:
+		print("Error: Player could not find its playerUI")
 
 func get_input():
 	velocity = Vector2()
@@ -51,13 +57,16 @@ func attemptAbility():
 	get_node("Abilities").attemptShoot()
 
 func takeDamage(dmg):
-	var playerUI = get_tree().get_current_scene().get_node("CanvasLayer/playerUI");
-	playerUI.updateTime(-(dmg / 10.0));
+	if playerUI != null:
+		playerUI.updateTime(-(dmg / 10.0));
+
+func _process(_delta):
+	if playerUI != null and playerUI.currentTime != null and playerUI.currentTime <= 0:
+		die()
 
 func die():
 	print("Player has died")
-	# game over screen()
-	get_tree().paused = true
+	get_tree().change_scene("res://Scenes/Instances/deathScreen.tscn")
 
 func _physics_process(delta):
 	if currentShootCooldown > 0:

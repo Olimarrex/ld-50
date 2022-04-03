@@ -5,25 +5,29 @@ export var upgrades = [
 		"name": "Ice Burst",
 		"type": "Ability",
 		"cost": 20,
-		"resource": "res://Art/Sprites/IceBurst.png"
+		"resource": "res://Art/Sprites/IceBurst.png",
+		"icon": "res://Art/Sprites/IceBurstBig.png"
 	},
 	{
 		"name": "Explosion",
 		"type": "Ability",
 		"cost": 50,
-		"resource": "res://Art/Sprites/MagicNuke.png"
+		"resource": "res://Art/Sprites/MagicNuke.png",
+		"icon": "res://Art/Sprites/MagicNukeBig.png"
 	},
 	{
 		"name": "Teleport",
 		"type": "Ability",
 		"cost": 5,
-		"resource": "res://Art/Sprites/Teleport.png"
+		"resource": "res://Art/Sprites/Teleport.png",
+		"icon": "res://Art/Sprites/TeleportBig.png"
 	},
 	{
 		"name": "Time Magnet",
 		"type": "Ability",
 		"cost": 20,
-		"resource": "res://Art/Sprites/Magnet.png"
+		"resource": "res://Art/Sprites/Magnet.png",
+		"icon": "res://Art/Sprites/MagnetBig.png",
 	},
 	{
 		"name": "Movement+",

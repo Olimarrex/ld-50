@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 21.0238
 
-[node name="Gobbo" type="Node2D"]
+[node name="Gobbo" type="Node2D" groups=["Globbo"]]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["mobs"]]
 script = ExtResource( 2 )

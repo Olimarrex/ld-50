@@ -13,7 +13,7 @@ func startCooldown(time):
 	timer.start()
 
 func _physics_process(_delta):
-	if timer != null:
+	if timer != null and abilityTime != 0:
 		self.value = (timer.time_left/abilityTime)*100
 
 func finishCooldown():

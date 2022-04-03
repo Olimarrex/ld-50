@@ -8,31 +8,36 @@ export var enemyNodes = {
 var loadedEnemies = {};
 var waves = [
 	{
-		"gobbo": 5
+		"gobbo": 5,
+		"ghost": 5
 	},
 	{
-		"gobbo": 10
+		"gobbo": 10,
+		"ghost": 5
 	},
 	{
 		"gobbo": 15,
+		"ghost": 5
+	},
+	{
+		"gobbo": 25,
+		"ghost": 5
+	},
+	{
+		"gobbo": 30,
 		"ghost": 15
 	},
 	{
-		"gobbo": 20
+		"gobbo": 50,
+		"ghost": 25
 	},
 	{
-		"gobbo": 30
+		"gobbo": 75,
+		"ghost": 50,
 	},
 	{
-		"gobbo": 10
-	},
-	{
-		"gobbo": 20,
-		"ghost": 20,
-	},
-	{
-		"gobbo": 60,
-		"ghost": 40,
+		"gobbo": 100,
+		"ghost": 100,
 	}
 ];
 
@@ -45,14 +50,18 @@ func _ready():
 
 func _on_Timer_timeout():
 	var wave;
+
 	if(currentWave < waves.size()):
 		wave = waves[currentWave];
 	else:
 		wave = waves[waves.size() - 1];
-		wave["gobbo"] *= 1.1;
+		#wave["gobbo"] *= 1.1;
 	for key in wave:
 		spawn(key, wave[key]);
 	currentWave += 1;
+	var gosts = get_tree().get_nodes_in_group("Ghost")
+	var globbo = get_tree().get_nodes_in_group("Globbo")
+	print("ghost = " + str(len(gosts)) + "  gobs = " +  str(len(globbo)))
 
 func spawn(key, count):
 	var cameraPos = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
