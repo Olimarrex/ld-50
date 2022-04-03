@@ -462,7 +462,7 @@ stream = ExtResource( 15 )
 
 [node name="SoundHitHurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
-volume_db = -16.0
+volume_db = -10.0
 
 [node name="abilityBar" type="TextureProgress" parent="."]
 margin_left = 1128.0
