@@ -47,19 +47,19 @@ volume_db = -14.455
 
 [node name="Abilities" type="Node2D" parent="KinematicBody2D"]
 script = ExtResource( 4 )
-activeAbility = "TimeSuck"
+activeAbility = "Time Magnet"
 
-[node name="IceBurst" type="Node2D" parent="KinematicBody2D/Abilities"]
+[node name="Ice Burst" type="Node2D" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 5 )
 
-[node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D/Abilities/IceBurst"]
+[node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D/Abilities/Ice Burst"]
 stream = ExtResource( 3 )
 volume_db = -14.455
 
-[node name="TimeSuck" type="Node" parent="KinematicBody2D/Abilities"]
+[node name="Time Magnet" type="Node" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 6 )
 
-[node name="Nuke" type="Node" parent="KinematicBody2D/Abilities"]
+[node name="Explosion" type="Node" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 7 )
 
 [node name="Teleport" type="Node2D" parent="KinematicBody2D/Abilities"]

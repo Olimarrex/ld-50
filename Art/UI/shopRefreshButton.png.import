@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/damageUpgrade.png-3c9e6d4bc15c61d9748bad97c689a854.stex"
+path="res://.import/shopRefreshButton.png-516d1398743b809ed96a3255b6083cfa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/damageUpgrade.png"
-dest_files=[ "res://.import/damageUpgrade.png-3c9e6d4bc15c61d9748bad97c689a854.stex" ]
+source_file="res://Art/UI/shopRefreshButton.png"
+dest_files=[ "res://.import/shopRefreshButton.png-516d1398743b809ed96a3255b6083cfa.stex" ]
 
 [params]
 

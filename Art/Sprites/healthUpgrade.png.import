@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/movementUpgrade.png-a28a370af497cb86fd03ee3c435faf7d.stex"
+path="res://.import/healthUpgrade.png-8bbe3b0a4b827a4f33665641b7ab0256.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/UI/movementUpgrade.png"
-dest_files=[ "res://.import/movementUpgrade.png-a28a370af497cb86fd03ee3c435faf7d.stex" ]
+source_file="res://Art/Sprites/healthUpgrade.png"
+dest_files=[ "res://.import/healthUpgrade.png-8bbe3b0a4b827a4f33665641b7ab0256.stex" ]
 
 [params]
 
