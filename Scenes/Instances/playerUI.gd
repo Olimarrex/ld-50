@@ -18,10 +18,7 @@ func _ready():
 	timer.start()
 
 func countdown():
-	if currentTime == 1:
-		self.get_parent().get_parent().call("death")
-		timer.stop()
-	elif currentTime == null:
+	if currentTime == null:
 		currentTime = startingTime
 		updateTime(-1);
 	else:
@@ -33,6 +30,8 @@ func updateTime(amount):
 	seconds = ((float(currentTime)/float(60)) - float(minutes)) * float(60)
 	$timerBackground/Time.text = str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2);
 	if currentTime <= 0:
+		self.get_parent().get_parent().call("death")
+		timer.stop()
 		print('game over goes here.');
 
 func chooseOption1():
