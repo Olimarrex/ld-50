@@ -4,6 +4,7 @@ export (int) var speed = 200
 export (int) var damage = 1
 export (int) var maxHealth = 100
 export (int) var pickUpTime = 1
+export (float) var knockbackRes = 1.0
 export (NodePath) var spright = null
 
 
@@ -41,6 +42,9 @@ func takeDamage(dmg):
 	$enemyHealthBar.value = health
 	if health <= 0:
 		call_deferred("die")
+
+func knockback(dir):
+	velocity += dir * knockbackRes;
 
 func die():
 	pickupScene.setTime(pickUpTime)
