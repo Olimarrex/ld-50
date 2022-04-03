@@ -4,40 +4,105 @@ export var currentWave = 0;
 export var enemyNodes = {
 	"gobbo": "res://Scenes/Instances/Gobbo.tscn",
 	"ghost": "res://Scenes/Instances/Ghost.tscn",
+	"zombo": "res://Scenes/Instances/Zombie.tscn"
 };
 var loadedEnemies = {};
 var waves = [
 	{
-		"gobbo": 5,
-		"ghost": 5
+		"gobbo": 2,
+		"ghost": 4,
+		"zombo": 1
+	},
+	{
+		"gobbo": 2,
+		"ghost": 4
+	},
+	{
+		"gobbo": 4,
+		"ghost": 6
+	},
+	{
+		"gobbo": 0,
+		"ghost": 10
+	},
+	{
+		"gobbo": 0,
+		"ghost": 15,
+		"zombo": 1
 	},
 	{
 		"gobbo": 10,
-		"ghost": 5
+		"ghost": 0,
+		"zombo": 5
 	},
 	{
-		"gobbo": 15,
-		"ghost": 5
+		"gobbo": 3,
+		"ghost": 3,
+		"zombo": 15
 	},
 	{
-		"gobbo": 25,
-		"ghost": 5
+		"gobbo": 4,
+		"ghost": 4,
+		"zombo": 16
+	},
+	{
+		"gobbo": 5,
+		"ghost": 5,
+		"zombo": 18
+	},
+	{
+		"gobbo": 20,
+		"ghost": 20,
+		"zombo": 5
+	},
+	{
+		"gobbo": 40,
+		"ghost": 0
+	},
+	{
+		"gobbo": 0,
+		"ghost": 0,
+		"zombo": 30
+	},
+	{
+		"gobbo": 10,
+		"ghost": 0,
+		"zombo": 30
 	},
 	{
 		"gobbo": 30,
-		"ghost": 15
+		"ghost": 30,
+		"zombo": 30
+	},
+	{
+		"gobbo": 10,
+		"ghost": 50,
+		"zombo": 10
+	},
+	{
+		"gobbo": 100,
+		"ghost": 0,
+		"zombo": 0
+	},
+	{
+		"gobbo": 80,
+		"ghost": 0,
+		"zombo": 80
 	},
 	{
 		"gobbo": 50,
-		"ghost": 25
+		"ghost": 40,
+		"zombo": 60
 	},
 	{
-		"gobbo": 75,
-		"ghost": 50,
+		"gobbo": 90,
+		"ghost": 30,
+		"zombo": 80
 	},
 	{
 		"gobbo": 100,
 		"ghost": 100,
+		"zombo": 100
 	}
 ];
 
@@ -57,11 +122,12 @@ func _on_Timer_timeout():
 		wave = waves[waves.size() - 1];
 		#wave["gobbo"] *= 1.1;
 	for key in wave:
-		spawn(key, wave[key]);
+		spawn(key, wave[key] + 1);
 	currentWave += 1;
-	var gosts = get_tree().get_nodes_in_group("Ghost")
 	var globbo = get_tree().get_nodes_in_group("Globbo")
-	print("ghost = " + str(len(gosts)) + "  gobs = " +  str(len(globbo)))
+	var gosts = get_tree().get_nodes_in_group("Ghost")
+	var zombos = get_tree().get_nodes_in_group("Zombo")
+	print("gobs = " + str(len(globbo)) + ", ghost = " + str(len(gosts)) + ", zombos = " + str(len(zombos)))
 
 func spawn(key, count):
 	var cameraPos = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
