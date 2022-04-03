@@ -65,12 +65,14 @@ func attemptAbility():
 	get_node("Abilities").attemptShoot()
 
 func takeDamage(dmg):
+	self.get_parent().get_parent().get_node("CanvasLayer/playerUI/timerBackground").set_modulate(Color8(225, 53, 53))
 	if playerUI != null:
 		playerUI.updateTime(-(dmg / 10.0));
 
-func _process(_delta):
+func _process(delta):
 	if playerUI != null and playerUI.currentTime != null and playerUI.currentTime <= 0:
 		die()
+	
 
 func die():
 	print("Player has died")
