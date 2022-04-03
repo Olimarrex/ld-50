@@ -101,13 +101,34 @@ func chooseOption1():
 			if currentTime >= i["cost"]:
 				updateTime(-i["cost"])
 	generateOption1()
-	print(currentPassives)
 
 func chooseOption2():
-	print("2")
+	for i in array:
+		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text:
+			if i["type"] == "Ability":
+				self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
+				currentAbility = i["name"]
+				if $abilityBar.timer != null:
+					$abilityBar.timer.stop()
+			elif i["type"] == "Passive":
+				currentPassives.append(i["name"])
+			if currentTime >= i["cost"]:
+				updateTime(-i["cost"])
+	generateOption2()
 	
 func chooseOption3():
-	print("3")
+	for i in array:
+		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text:
+			if i["type"] == "Ability":
+				self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
+				currentAbility = i["name"]
+				if $abilityBar.timer != null:
+					$abilityBar.timer.stop()
+			elif i["type"] == "Passive":
+				currentPassives.append(i["name"])
+			if currentTime >= i["cost"]:
+				updateTime(-i["cost"])
+	generateOption3()
 
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;
