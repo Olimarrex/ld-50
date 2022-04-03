@@ -64,15 +64,21 @@ var i = 0;
 func attemptAbility():
 	get_node("Abilities").attemptShoot()
 
+var redness = 0.0;
+
 func takeDamage(dmg):
-	self.get_parent().get_parent().get_node("CanvasLayer/playerUI/timerBackground").set_modulate(Color8(225, 53, 53))
+	redness = 1.0;
 	if playerUI != null:
 		playerUI.updateTime(-(dmg / 10.0));
 
 func _process(delta):
 	if playerUI != null and playerUI.currentTime != null and playerUI.currentTime <= 0:
 		die()
-	
+	if redness > 0:
+		var r = 255 - ((255 - 225) * redness);
+		var gb = 255 - ((255 - 53) * redness);
+		playerUI.get_node("timerBackground").set_modulate(Color8(r, gb, gb));
+		redness -= 0.05;
 
 func die():
 	print("Player has died")
