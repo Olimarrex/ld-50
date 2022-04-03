@@ -136,9 +136,9 @@ func _on_Node2D_add_time(time):
 		pickupCount += 1;
 	else:
 		pickupCount = 0;
-	$CoinPickupSound.pitch_scale = 1 + (pickupCount % 40 / 30.0) + (pickupCount / 40);
-	#if pickupCount > 2 && pickupCount % 30 == 0:
-		#$SoundBigupCoin.play();
+	$CoinPickupSound.pitch_scale = 1 + (pickupCount % 40 / 30.0) + min(pickupCount / 80.0, 0.6);
+	if pickupCount > 1 && pickupCount % 40 == 0:
+		$SoundBigupCoin.play();
 	$CoinPickupSound.play();
 	updateTime(time)
 	lastPickup = pickupTime;
