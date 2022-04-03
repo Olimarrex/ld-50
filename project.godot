@@ -18,6 +18,10 @@ config/name="Ld- 50"
 run/main_scene="res://Scenes/Instances/test.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Autoload="*res://Singletons/Autoload.gd"
+
 [display]
 
 window/size/width=1280
