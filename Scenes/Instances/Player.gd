@@ -51,10 +51,9 @@ func attemptAbility():
 	get_node("Abilities").attemptShoot()
 
 func takeDamage(dmg):
-	health -= dmg
-	if health <= 0:
-		die()
-		
+	var playerUI = get_tree().get_current_scene().get_node("CanvasLayer/playerUI");
+	playerUI.updateTime(-(dmg / 10.0));
+
 func die():
 	print("Player has died")
 	# game over screen()
