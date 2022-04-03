@@ -1,8 +1,5 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://Art/UI/healthBarOver.png" type="Texture" id=1]
-[ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
-[ext_resource path="res://Art/UI/healthBarProgress.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Instances/playerUI.gd" type="Script" id=4]
 [ext_resource path="res://Art/UI/shopBackground.png" type="Texture" id=5]
 [ext_resource path="res://Art/UI/shopOptionBackground.png" type="Texture" id=6]
@@ -339,18 +336,6 @@ margin_top = 576.0
 margin_right = 1280.0
 margin_bottom = 656.0
 rect_min_size = Vector2( 0, 80 )
-
-[node name="healthBar" type="TextureProgress" parent="."]
-visible = false
-margin_left = 359.0
-margin_top = 650.0
-margin_right = 922.0
-margin_bottom = 680.0
-max_value = 1000.0
-value = 1000.0
-texture_under = ExtResource( 2 )
-texture_over = ExtResource( 1 )
-texture_progress = ExtResource( 3 )
 
 [node name="timerBackground" type="TextureRect" parent="."]
 margin_left = 518.0

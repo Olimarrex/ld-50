@@ -31,8 +31,7 @@ func _physics_process(_delta):
 
 func inflictDamage(_entity):
 	get_parent().get_parent().get_node("Player/KinematicBody2D").takeDamage(damage)
-	get_parent().get_parent().get_node("CanvasLayer").get_node("playerUI").get_node("healthBar").value -= damage
-	
+
 func takeDamage(dmg):
 	health -= dmg
 	$enemyHealthBar.value = health

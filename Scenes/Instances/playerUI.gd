@@ -23,25 +23,17 @@ func countdown():
 		timer.stop()
 	elif currentTime == null:
 		currentTime = startingTime
-		currentTime -= 1
-		updateTime()
+		updateTime(-1);
 	else:
-		currentTime -= 1
-		updateTime()
+		updateTime(-1);
 
-func updateTime():
+func updateTime(amount):
+	currentTime = max(currentTime + amount, 0);
 	minutes = int(currentTime/60)
 	seconds = ((float(currentTime)/float(60)) - float(minutes)) * float(60)
-	if minutes < 10:
-		if seconds < 10:
-			$timerBackground/Time.text = "0" + str(minutes) + ":0" + str(seconds)
-		else:
-			$timerBackground/Time.text = "0" + str(minutes) + ":" + str(seconds)
-	else:
-		if seconds < 10:
-			$timerBackground/Time.text = str(minutes) + ":0" + str(seconds)
-		else:
-			$timerBackground/Time.text = str(minutes) + ":" + str(seconds)
+	$timerBackground/Time.text = str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2);
+	if currentTime <= 0:
+		print('game over goes here.');
 
 func chooseOption1():
 	print("dmg")
@@ -54,10 +46,9 @@ func _on_Node2D_add_time(time):
 		pickupCount += 1;
 	else:
 		pickupCount = 0;
-	currentTime += time;
 	$CoinPickupSound.pitch_scale = 1 + fmod((pickupCount / 30.0), 1.8);
 	if pickupCount > 2 && pickupCount % 30 == 0:
 		$SoundBigupCoin.play();
 	$CoinPickupSound.play();
-	updateTime()
+	updateTime(time)
 	lastPickup = pickupTime;
