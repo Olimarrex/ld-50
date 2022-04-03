@@ -1,12 +1,10 @@
 extends Control
 
-var startingTime = 100
+export (int) var startingTime = 3
 var currentTime = null
 var timer
 var minutes
 var seconds
-
-
 
 func _ready():
 	randomize()
@@ -22,7 +20,9 @@ func _ready():
 	generateOption3()
 
 func countdown():
-	if currentTime == null:
+	if currentTime == 0:
+		timer.stop()
+	elif currentTime == null:
 		currentTime = startingTime
 		updateTime(-1);
 	else:
