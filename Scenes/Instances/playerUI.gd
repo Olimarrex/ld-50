@@ -124,7 +124,8 @@ func chooseOption(optTitle, optCost, optSprite):
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
 					else:
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
-				generateOption(optTitle, optCost, optSprite);
+			generateOption(optTitle, optCost, optSprite);
+			break;
 
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;
