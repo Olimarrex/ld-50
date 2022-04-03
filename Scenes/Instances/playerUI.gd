@@ -1,6 +1,6 @@
 extends Control
 
-export (int) var startingTime = 3
+export (int) var startingTime = 300
 var currentTime = null
 var timer
 var minutes
@@ -45,40 +45,43 @@ onready var currentAbility = self.get_parent().get_parent().get_node("Player/Kin
 var currentPassives = []
 
 func generateOption1():
-	availableUpgrades.clear()
-	for i in array:
-		if i["name"] != currentAbility and not currentShop.has(i["name"]):
-			availableUpgrades.append(i)
-	var chosenUpgrade = availableUpgrades[randi() % availableUpgrades.size()]
-	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text)
-	currentShop.append(chosenUpgrade["name"])
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text = chosenUpgrade["name"]
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost.text = str(chosenUpgrade["cost"]) + " Seconds"
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer/option1Sprite.texture = load(chosenUpgrade["resource"])
+	generateOption($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer/option1Sprite);
 
 func generateOption2():
-	availableUpgrades.clear()
-	for i in array:
-		if i["name"] != currentAbility and not currentShop.has(i["name"]):
-			availableUpgrades.append(i)
-	var chosenUpgrade = availableUpgrades[randi() % availableUpgrades.size()]
-	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text)
-	currentShop.append(chosenUpgrade["name"])
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text = chosenUpgrade["name"]
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost.text = str(chosenUpgrade["cost"]) + " Seconds"
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/HBoxContainer/option2Sprite.texture = load(chosenUpgrade["resource"])
+	generateOption($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/HBoxContainer/option2Sprite);
 
 func generateOption3():
+	generateOption($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/HBoxContainer/option3Sprite);
+
+func regenerateText(optTitle, optCost):
+	var name =  optTitle.text
+	for i in array:
+		if i["name"] == name:
+			optCost.text = str(getCost(i["cost"])) + " Seconds";
+
+func generateOption(optTitle, optCost, optSprite):
 	availableUpgrades.clear()
+	print(array.size());
 	for i in array:
 		if i["name"] != currentAbility and not currentShop.has(i["name"]):
 			availableUpgrades.append(i)
 	var chosenUpgrade = availableUpgrades[randi() % availableUpgrades.size()]
-	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text)
+	currentShop.erase(optTitle.text)
 	currentShop.append(chosenUpgrade["name"])
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text = chosenUpgrade["name"]
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost.text = str(chosenUpgrade["cost"]) + " Seconds"
-	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/HBoxContainer/option3Sprite.texture = load(chosenUpgrade["resource"])
+	optTitle.text = chosenUpgrade["name"]
+	var newCost = getCost(chosenUpgrade["cost"]);
+	optCost.text = str(newCost) + " Seconds"
+	optSprite.texture = load(chosenUpgrade["resource"])
+	
+func countPassive(name):
+	var count = 0;
+	for passive in currentPassives:
+		if passive == name:
+			count += 1;
+	return count;
+	
+func getCost(currCost):
+	return round(currCost / (1 + countPassive("Time Save") / 10.0));
 
 func refreshShop():
 	if currentTime > 5:
@@ -89,50 +92,21 @@ func refreshShop():
 		print(currentShop)
 
 func chooseOption1():
-	for i in array:
-		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text:
-			if currentTime > i["cost"]:
-				updateTime(-i["cost"])
-				if i["type"] == "Ability":
-					self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
-					currentAbility = i["name"]
-					$abilityBar.texture_under = load(i["icon"])
-					if $abilityBar.timer != null:
-						$abilityBar.timer.stop()
-				elif i["type"] == "Passive":
-					currentPassives.append(i["name"])
-					if get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).visible == false:
-						get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).show()
-						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
-					else:
-						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
-				generateOption1()
+	chooseOption($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer/option1Sprite);
 
 func chooseOption2():
-	for i in array:
-		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text:
-			if currentTime > i["cost"]:
-				updateTime(-i["cost"])
-				if i["type"] == "Ability":
-					self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
-					currentAbility = i["name"]
-					$abilityBar.texture_under = load(i["icon"])
-					if $abilityBar.timer != null:
-						$abilityBar.timer.stop()
-				elif i["type"] == "Passive":
-					currentPassives.append(i["name"])
-					if get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).visible == false:
-						get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).show()
-						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
-					else:
-						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
-				generateOption2()
+	chooseOption($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/HBoxContainer/option2Sprite);
 
 func chooseOption3():
+	chooseOption($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/HBoxContainer/option3Sprite);
+
+func chooseOption(optTitle, optCost, optSprite):
 	for i in array:
-		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text:
-			if currentTime > i["cost"]:
-				updateTime(-i["cost"])
+		if i["name"] == optTitle.text:
+			var newCost = getCost(i["cost"]);
+			print(newCost, i["cost"]);
+			if currentTime > newCost:
+				updateTime(-newCost)
 				if i["type"] == "Ability":
 					self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
 					currentAbility = i["name"]
@@ -141,12 +115,15 @@ func chooseOption3():
 						$abilityBar.timer.stop()
 				elif i["type"] == "Passive":
 					currentPassives.append(i["name"])
+					regenerateText($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost);
+					regenerateText($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost);
+					regenerateText($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost);
 					if get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).visible == false:
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).show()
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
 					else:
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
-				generateOption3()
+				generateOption(optTitle, optCost, optSprite);
 
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;

@@ -45,18 +45,19 @@ export var upgrades = [
 		"name": "Cooldown-",
 		"type": "Passive",
 		"cost": 10,
-		"resource": "res://Art/Sprites/IceBurst.png"
+		"resource": "res://Art/Sprites/Cooldown.png"
 	},
 	{
 		"name": "Attack Speed+",
+		"key": "attackSpeed",
 		"type": "Passive",
 		"cost": 10,
-		"resource": "res://Art/Sprites/IceBurst.png"
+		"resource": "res://Art/Sprites/AttackSpeedUp.png"
 	},
 	{
 		"name": "Time Save",
 		"type": "Passive",
 		"cost": 60,
-		"resource": "res://Art/Sprites/IceBurst.png"
+		"resource": "res://Art/Sprites/TimeSave.png"
 	}
 ];

@@ -19,9 +19,10 @@ func attemptShoot():
 		return
 
 	if current.cooldown <= 0 and playerUI.currentTime != null and playerUI.currentTime >= current.timeCost:
-		current.cooldown = current.abilityCooldown
+		var newCooldown = current.abilityCooldown / get_parent().countPassives("Cooldown-");
+		current.cooldown = newCooldown;
 		current.shootAbility()
-		get_tree().get_current_scene().get_node("CanvasLayer/playerUI/abilityBar").startCooldown(current.abilityCooldown)
+		get_tree().get_current_scene().get_node("CanvasLayer/playerUI/abilityBar").startCooldown(newCooldown)
 		playerUI.currentTime -= current.timeCost
 
 func _process(delta):
