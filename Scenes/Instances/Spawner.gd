@@ -18,21 +18,21 @@ var waves = [
 		"ghost": 15
 	},
 	{
+		"gobbo": 20
+	},
+	{
+		"gobbo": 30
+	},
+	{
 		"gobbo": 10
 	},
 	{
-		"gobbo": 70
-	},
-	{
-		"gobbo": 10
-	},
-	{
-		"gobbo": 500,
-		"ghost": 500,
+		"gobbo": 20,
+		"ghost": 20,
 	},
 	{
 		"gobbo": 60,
-		"ghost": 100,
+		"ghost": 40,
 	}
 ];
 

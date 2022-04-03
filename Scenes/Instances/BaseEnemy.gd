@@ -35,7 +35,10 @@ func inflictDamage(_entity):
 	get_parent().get_parent().get_node("Player/KinematicBody2D").takeDamage(damage)
 
 func takeDamage(dmg):
-	health -= dmg
+	health -= dmg;
+	var playerUI = get_tree().get_current_scene().get_node("CanvasLayer/playerUI")
+	playerUI.get_node('SoundHitHurt').pitch_scale = rand_range(0.8, 1.2);
+	playerUI.get_node('SoundHitHurt').play();
 	$enemyHealthBar.value = health
 	if health <= 0:
 		call_deferred("die")
