@@ -1,6 +1,6 @@
 extends Control
 
-var startingTime = 10
+var startingTime = 100
 var currentTime = null
 var timer
 var minutes
@@ -22,30 +22,21 @@ func _ready():
 	generateOption3()
 
 func countdown():
-	if currentTime == 1:
-		self.get_parent().get_parent().call("death")
-		timer.stop()
-	elif currentTime == null:
+	if currentTime == null:
 		currentTime = startingTime
-		currentTime -= 1
-		updateTime()
+		updateTime(-1);
 	else:
-		currentTime -= 1
-		updateTime()
+		updateTime(-1);
 
-func updateTime():
+func updateTime(amount):
+	currentTime = max(currentTime + amount, 0);
 	minutes = int(currentTime/60)
 	seconds = ((float(currentTime)/float(60)) - float(minutes)) * float(60)
-	if minutes < 10:
-		if seconds < 10:
-			$timerBackground/Time.text = "0" + str(minutes) + ":0" + str(seconds)
-		else:
-			$timerBackground/Time.text = "0" + str(minutes) + ":" + str(seconds)
-	else:
-		if seconds < 10:
-			$timerBackground/Time.text = str(minutes) + ":0" + str(seconds)
-		else:
-			$timerBackground/Time.text = str(minutes) + ":" + str(seconds)
+	$timerBackground/Time.text = str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2);
+	if currentTime <= 0:
+		self.get_parent().get_parent().call("death")
+		timer.stop()
+		print('game over goes here.');
 
 var currentShop = ["Upgrade #1", "Upgrade #2", "Upgrade #3"]
 onready var array = self.get_parent().get_parent().get_node("Player/KinematicBody2D/Upgrades").upgrades
@@ -94,8 +85,7 @@ func refreshShop():
 		generateOption1()
 		generateOption2()
 		generateOption3()
-		currentTime -= 5
-		updateTime()
+		updateTime(-5)
 		print(currentShop)
 
 func chooseOption1():
@@ -109,8 +99,7 @@ func chooseOption1():
 			elif i["type"] == "Passive":
 				currentPassives.append(i["name"])
 			if currentTime >= i["cost"]:
-				currentTime -= i["cost"]
-				updateTime()
+				updateTime(-i["cost"])
 	generateOption1()
 	print(currentPassives)
 
@@ -128,10 +117,9 @@ func _on_Node2D_add_time(time):
 		pickupCount += 1;
 	else:
 		pickupCount = 0;
-	currentTime += time;
 	$CoinPickupSound.pitch_scale = 1 + fmod((pickupCount / 30.0), 1.8);
 	if pickupCount > 2 && pickupCount % 30 == 0:
 		$SoundBigupCoin.play();
 	$CoinPickupSound.play();
-	updateTime()
+	updateTime(time)
 	lastPickup = pickupTime;
