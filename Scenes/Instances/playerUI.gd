@@ -22,6 +22,7 @@ func _ready():
 	var passiveIcons = [get_node("HBoxContainer/VBoxContainer/Movement+"),
 	get_node("HBoxContainer/VBoxContainer/Damage+"),get_node("HBoxContainer/VBoxContainer/Cooldown-"),
 	get_node("HBoxContainer/VBoxContainer/Attack Speed+"),get_node("HBoxContainer/VBoxContainer/Time Save")]
+	$bossHealthBar.hide()
 	for i in passiveIcons:
 		i.hide()
 
