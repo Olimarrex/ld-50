@@ -140,15 +140,16 @@ func _process(delta):
 	mobCount = len(get_tree().get_nodes_in_group("mobs"))
 	if mobCount == 0:
 		startNextWave()
-		
+
 func _on_Timer_timeout():
 	startNextWave()
-			
+
 func getMobsCountInWave(waveIndex):
+	waveIndex = min(waveIndex, waves.size() -1)
 	var count = 0
-	for key in waves[currentWave]:
+	for key in waves[waveIndex]:
 		if key != "time":
-			count += waves[currentWave][key]
+			count += waves[waveIndex][key]
 	return count
 	
 func startNextWave():
