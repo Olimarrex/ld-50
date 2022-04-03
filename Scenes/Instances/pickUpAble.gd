@@ -17,4 +17,5 @@ func _process(delta):
 
 func die():
 	emit_signal("pick_up")
-	get_parent().free()
+	get_parent().queue_free()
+	

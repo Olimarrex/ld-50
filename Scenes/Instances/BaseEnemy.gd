@@ -22,10 +22,10 @@ func _process(_delta):
 	velocity += ((dir * speed) / 10);
 	velocity /= 1.05;
 	velocity = move_and_slide(velocity)
-#	for i in get_slide_count():
-#		var collision = get_slide_collision(i)
-#		if collision.collider.is_in_group("player"):
-#			inflictDamage(collision)
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.is_in_group("player"):
+			inflictDamage(collision)
 	if dir[0]>0:
 		get_node(spright).set_flip_h( false )
 	else:
