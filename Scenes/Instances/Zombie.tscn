@@ -18,7 +18,7 @@ speed = 60
 maxHealth = 1000
 spright = NodePath("Sprite")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D" groups=["mobs"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
