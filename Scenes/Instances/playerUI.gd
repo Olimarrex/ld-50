@@ -19,6 +19,11 @@ func _ready():
 	generateOption1()
 	generateOption2()
 	generateOption3()
+	var passiveIcons = [get_node("HBoxContainer/VBoxContainer/Movement+"),
+	get_node("HBoxContainer/VBoxContainer/Damage+"),get_node("HBoxContainer/VBoxContainer/Cooldown-"),
+	get_node("HBoxContainer/VBoxContainer/Attack Speed+"),get_node("HBoxContainer/VBoxContainer/Time Save")]
+	for i in passiveIcons:
+		i.hide()
 
 func countdown():
 	updateTime(-1);
@@ -96,6 +101,11 @@ func chooseOption1():
 						$abilityBar.timer.stop()
 				elif i["type"] == "Passive":
 					currentPassives.append(i["name"])
+					if get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).visible == false:
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).show()
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
+					else:
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
 				generateOption1()
 
 func chooseOption2():
@@ -111,6 +121,11 @@ func chooseOption2():
 						$abilityBar.timer.stop()
 				elif i["type"] == "Passive":
 					currentPassives.append(i["name"])
+					if get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).visible == false:
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).show()
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
+					else:
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
 				generateOption2()
 
 func chooseOption3():
@@ -126,6 +141,11 @@ func chooseOption3():
 						$abilityBar.timer.stop()
 				elif i["type"] == "Passive":
 					currentPassives.append(i["name"])
+					if get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).visible == false:
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"])).show()
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
+					else:
+						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
 				generateOption3()
 
 var lastPickup = OS.get_system_time_secs();

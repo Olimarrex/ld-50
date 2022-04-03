@@ -445,17 +445,17 @@ margin_right = 97.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 
-[node name="passive1" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Movement+" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 24.0
 margin_right = 97.0
 margin_bottom = 100.0
 
-[node name="icon1" type="TextureRect" parent="HBoxContainer/VBoxContainer/passive1"]
+[node name="icon1" type="TextureRect" parent="HBoxContainer/VBoxContainer/Movement+"]
 margin_right = 76.0
 margin_bottom = 76.0
 texture = ExtResource( 1 )
 
-[node name="Counter1" type="Label" parent="HBoxContainer/VBoxContainer/passive1"]
+[node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Movement+"]
 margin_left = 80.0
 margin_top = 22.0
 margin_right = 97.0
@@ -470,17 +470,17 @@ margin_right = 97.0
 margin_bottom = 106.0
 rect_min_size = Vector2( 0, 2 )
 
-[node name="passive2" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Cooldown-" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 110.0
 margin_right = 97.0
 margin_bottom = 186.0
 
-[node name="icon2" type="TextureRect" parent="HBoxContainer/VBoxContainer/passive2"]
+[node name="icon2" type="TextureRect" parent="HBoxContainer/VBoxContainer/Cooldown-"]
 margin_right = 76.0
 margin_bottom = 76.0
 texture = ExtResource( 1 )
 
-[node name="Counter2" type="Label" parent="HBoxContainer/VBoxContainer/passive2"]
+[node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Cooldown-"]
 margin_left = 80.0
 margin_top = 22.0
 margin_right = 97.0
@@ -495,17 +495,17 @@ margin_right = 97.0
 margin_bottom = 192.0
 rect_min_size = Vector2( 0, 2 )
 
-[node name="passive3" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Damage+" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 196.0
 margin_right = 97.0
 margin_bottom = 272.0
 
-[node name="icon3" type="TextureRect" parent="HBoxContainer/VBoxContainer/passive3"]
+[node name="icon3" type="TextureRect" parent="HBoxContainer/VBoxContainer/Damage+"]
 margin_right = 76.0
 margin_bottom = 76.0
 texture = ExtResource( 1 )
 
-[node name="Counter3" type="Label" parent="HBoxContainer/VBoxContainer/passive3"]
+[node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Damage+"]
 margin_left = 80.0
 margin_top = 22.0
 margin_right = 97.0
@@ -520,17 +520,17 @@ margin_right = 97.0
 margin_bottom = 278.0
 rect_min_size = Vector2( 0, 2 )
 
-[node name="passive4" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Attack Speed+" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 282.0
 margin_right = 97.0
 margin_bottom = 358.0
 
-[node name="icon4" type="TextureRect" parent="HBoxContainer/VBoxContainer/passive4"]
+[node name="icon4" type="TextureRect" parent="HBoxContainer/VBoxContainer/Attack Speed+"]
 margin_right = 76.0
 margin_bottom = 76.0
 texture = ExtResource( 1 )
 
-[node name="Counter4" type="Label" parent="HBoxContainer/VBoxContainer/passive4"]
+[node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Attack Speed+"]
 margin_left = 80.0
 margin_top = 22.0
 margin_right = 97.0
@@ -545,17 +545,17 @@ margin_right = 97.0
 margin_bottom = 364.0
 rect_min_size = Vector2( 0, 2 )
 
-[node name="passive5" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Time Save" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 368.0
 margin_right = 97.0
 margin_bottom = 444.0
 
-[node name="icon5" type="TextureRect" parent="HBoxContainer/VBoxContainer/passive5"]
+[node name="icon5" type="TextureRect" parent="HBoxContainer/VBoxContainer/Time Save"]
 margin_right = 76.0
 margin_bottom = 76.0
 texture = ExtResource( 1 )
 
-[node name="Counter5" type="Label" parent="HBoxContainer/VBoxContainer/passive5"]
+[node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Time Save"]
 margin_left = 80.0
 margin_top = 22.0
 margin_right = 97.0
