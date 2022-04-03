@@ -1,6 +1,6 @@
 extends Control
 
-var startingTime = 10
+var startingTime = 100
 var currentTime = null
 var timer
 var minutes
@@ -85,8 +85,7 @@ func refreshShop():
 		generateOption1()
 		generateOption2()
 		generateOption3()
-		currentTime -= 5
-		updateTime()
+		updateTime(-5)
 		print(currentShop)
 
 func chooseOption1():
@@ -100,8 +99,7 @@ func chooseOption1():
 			elif i["type"] == "Passive":
 				currentPassives.append(i["name"])
 			if currentTime >= i["cost"]:
-				currentTime -= i["cost"]
-				updateTime()
+				updateTime(-i["cost"])
 	generateOption1()
 	print(currentPassives)
 
