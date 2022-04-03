@@ -9,6 +9,7 @@ var seconds
 
 
 func _ready():
+	randomize()
 	$Shop.hide()
 	timer = Timer.new()
 	self.add_child(timer)
@@ -16,6 +17,9 @@ func _ready():
 	timer.set_wait_time(1.0)
 	timer.set_one_shot(false)
 	timer.start()
+	generateOption1()
+	generateOption2()
+	generateOption3()
 
 func countdown():
 	if currentTime == null:
@@ -34,8 +38,78 @@ func updateTime(amount):
 		timer.stop()
 		print('game over goes here.');
 
+var currentShop = ["Upgrade #1", "Upgrade #2", "Upgrade #3"]
+onready var array = self.get_parent().get_parent().get_node("Player/KinematicBody2D/Upgrades").upgrades
+var availableUpgrades = []
+onready var currentAbility = self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility
+var currentPassives = []
+
+func generateOption1():
+	availableUpgrades.clear()
+	for i in array:
+		if i["name"] != currentAbility and not currentShop.has(i["name"]):
+			availableUpgrades.append(i)
+	var chosenUpgrade = availableUpgrades[randi() % availableUpgrades.size()]
+	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text)
+	currentShop.append(chosenUpgrade["name"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text = chosenUpgrade["name"]
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost.text = str(chosenUpgrade["cost"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer/option1Sprite.texture = load(chosenUpgrade["resource"])
+
+func generateOption2():
+	availableUpgrades.clear()
+	for i in array:
+		if i["name"] != currentAbility and not currentShop.has(i["name"]):
+			availableUpgrades.append(i)
+	var chosenUpgrade = availableUpgrades[randi() % availableUpgrades.size()]
+	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text)
+	currentShop.append(chosenUpgrade["name"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title.text = chosenUpgrade["name"]
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost.text = str(chosenUpgrade["cost"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/HBoxContainer/option2Sprite.texture = load(chosenUpgrade["resource"])
+
+func generateOption3():
+	availableUpgrades.clear()
+	for i in array:
+		if i["name"] != currentAbility and not currentShop.has(i["name"]):
+			availableUpgrades.append(i)
+	var chosenUpgrade = availableUpgrades[randi() % availableUpgrades.size()]
+	currentShop.erase($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text)
+	currentShop.append(chosenUpgrade["name"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title.text = chosenUpgrade["name"]
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost.text = str(chosenUpgrade["cost"])
+	$Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/HBoxContainer/option3Sprite.texture = load(chosenUpgrade["resource"])
+
+func refreshShop():
+	if currentTime >= 5:
+		generateOption1()
+		generateOption2()
+		generateOption3()
+		currentTime -= 5
+		updateTime()
+		print(currentShop)
+
 func chooseOption1():
-	print("dmg")
+	for i in array:
+		if i["name"] == $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title.text:
+			if i["type"] == "Ability":
+				self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
+				currentAbility = i["name"]
+				if $abilityBar.timer != null:
+					$abilityBar.timer.stop()
+			elif i["type"] == "Passive":
+				currentPassives.append(i["name"])
+			if currentTime >= i["cost"]:
+				currentTime -= i["cost"]
+				updateTime()
+	generateOption1()
+	print(currentPassives)
+
+func chooseOption2():
+	print("2")
+	
+func chooseOption3():
+	print("3")
 
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;

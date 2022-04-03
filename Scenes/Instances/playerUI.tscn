@@ -4,9 +4,9 @@
 [ext_resource path="res://Art/UI/shopBackground.png" type="Texture" id=5]
 [ext_resource path="res://Art/UI/shopOptionBackground.png" type="Texture" id=6]
 [ext_resource path="res://Art/UI/shopTitleBackground.png" type="Texture" id=7]
-[ext_resource path="res://Art/UI/healthUpgrade.png" type="Texture" id=8]
-[ext_resource path="res://Art/UI/damageUpgrade.png" type="Texture" id=9]
-[ext_resource path="res://Art/UI/movementUpgrade.png" type="Texture" id=10]
+[ext_resource path="res://Art/Sprites/healthUpgrade.png" type="Texture" id=8]
+[ext_resource path="res://Art/Sprites/damageUpgrade.png" type="Texture" id=9]
+[ext_resource path="res://Art/Sprites/movementUpgrade.png" type="Texture" id=10]
 [ext_resource path="res://Font/Thempo New St.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Art/UI/timerBackground.png" type="Texture" id=12]
 [ext_resource path="res://Sounds/SFX/pickupCoin.wav" type="AudioStream" id=13]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Art/UI/abilityUIUnderEmpty.png" type="Texture" id=19]
 [ext_resource path="res://Art/UI/basicAttackUIEmpty.png" type="Texture" id=20]
 [ext_resource path="res://Scenes/Instances/abilityBar.gd" type="Script" id=21]
+[ext_resource path="res://Art/UI/shopRefreshButton.png" type="Texture" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -145,7 +146,7 @@ margin_bottom = 197.0
 rect_pivot_offset = Vector2( 150, 16 )
 alignment = 1
 
-[node name="DamageUpgrade" type="Sprite" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer"]
+[node name="option1Sprite" type="Sprite" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer"]
 position = Vector2( 150, 0 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
@@ -222,7 +223,7 @@ margin_right = 300.0
 margin_bottom = 197.0
 alignment = 1
 
-[node name="MovementUpgrade" type="Sprite" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/HBoxContainer"]
+[node name="option2Sprite" type="Sprite" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/HBoxContainer"]
 position = Vector2( 150, 0 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 10 )
@@ -299,7 +300,7 @@ margin_right = 300.0
 margin_bottom = 197.0
 alignment = 1
 
-[node name="HealthUpgrade" type="Sprite" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/HBoxContainer"]
+[node name="option3Sprite" type="Sprite" parent="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/HBoxContainer"]
 position = Vector2( 150, 0 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 8 )
@@ -336,6 +337,25 @@ margin_top = 576.0
 margin_right = 1280.0
 margin_bottom = 656.0
 rect_min_size = Vector2( 0, 80 )
+
+[node name="refreshShop" type="TextureButton" parent="Shop"]
+margin_left = 1088.0
+margin_top = 131.0
+margin_right = 1138.0
+margin_bottom = 181.0
+texture_normal = ExtResource( 22 )
+
+[node name="healthBar" type="TextureProgress" parent="."]
+visible = false
+margin_left = 359.0
+margin_top = 650.0
+margin_right = 922.0
+margin_bottom = 680.0
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 3 )
 
 [node name="timerBackground" type="TextureRect" parent="."]
 margin_left = 518.0
@@ -379,3 +399,6 @@ margin_bottom = 710.0
 texture = ExtResource( 20 )
 
 [connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/chooseOption1" to="." method="chooseOption1"]
+[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/chooseOption2" to="." method="chooseOption2"]
+[connection signal="pressed" from="Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/chooseOption3" to="." method="chooseOption3"]
+[connection signal="pressed" from="Shop/refreshShop" to="." method="refreshShop"]
