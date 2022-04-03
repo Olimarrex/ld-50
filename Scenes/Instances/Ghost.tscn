@@ -18,7 +18,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 speed = 100
 damage = 2
-pickUpTime = 5
+pickUpTime = 2
 spright = NodePath("Ghost")
 
 [node name="Ghost" type="Sprite" parent="KinematicBody2D"]
