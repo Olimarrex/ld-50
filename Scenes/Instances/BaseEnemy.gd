@@ -44,7 +44,7 @@ func takeDamage(dmg):
 		call_deferred("die")
 
 func die():
-	pickupScene.time = pickUpTime
+	pickupScene.setTime(pickUpTime)
 	pickupScene.get_node("Area2D").set_position(position + get_parent().position)
 	get_parent().get_parent().add_child(pickupScene)
 	get_parent().free()
