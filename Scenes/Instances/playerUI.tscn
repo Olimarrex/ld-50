@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Art/UI/passiveEmpty.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
@@ -24,6 +24,13 @@
 [ext_resource path="res://Art/UI/shopRefreshButton.png" type="Texture" id=22]
 [ext_resource path="res://Sounds/SFX/hitHurt.wav" type="AudioStream" id=23]
 [ext_resource path="res://Art/UI/healthBarOver.png" type="Texture" id=24]
+[ext_resource path="res://Art/UI/bossHealthBarBorder.png" type="Texture" id=25]
+[ext_resource path="res://Art/UI/bossHealthBarProgress.png" type="Texture" id=26]
+[ext_resource path="res://Art/UI/bossHealthBarUnder.png" type="Texture" id=27]
+
+[sub_resource type="DynamicFont" id=17]
+size = 14
+font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -92,6 +99,26 @@ font_data = ExtResource( 11 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
+
+[node name="bossHealthBar" type="TextureProgress" parent="."]
+margin_left = 203.0
+margin_top = 30.0
+margin_right = 1078.0
+margin_bottom = 80.0
+texture_under = ExtResource( 27 )
+texture_over = ExtResource( 25 )
+texture_progress = ExtResource( 26 )
+
+[node name="bossName" type="Label" parent="bossHealthBar"]
+margin_left = 337.0
+margin_top = 29.0
+margin_right = 538.0
+margin_bottom = 49.0
+custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "BOSS NAME"
+align = 1
+valign = 1
 
 [node name="Shop" type="Control" parent="."]
 pause_mode = 2
