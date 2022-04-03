@@ -71,7 +71,11 @@ func generateOption(optTitle, optCost, optSprite):
 	currentShop.append(chosenUpgrade["name"])
 	optTitle.text = chosenUpgrade["name"]
 	var newCost = getCost(chosenUpgrade["cost"]);
-	optCost.text = str(newCost) + " Seconds"
+	print(chosenUpgrade)
+	if chosenUpgrade["type"] == "Ability":
+		optCost.text = str(newCost) + " Seconds\nUse Cost: " + str(chosenUpgrade["useCost"])
+	else:
+		optCost.text = str(newCost) + " Seconds"
 	optSprite.texture = load(chosenUpgrade["resource"])
 	
 func countPassive(name):
@@ -112,6 +116,7 @@ func chooseOption(optTitle, optCost, optSprite):
 					self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities").activeAbility = i["name"]
 					currentAbility = i["name"]
 					$abilityBar.texture_under = load(i["icon"])
+					$abilityBar/abilityCost.text = "Cost: " + str(i["useCost"])
 					if $abilityBar.timer != null:
 						$abilityBar.timer.stop()
 				elif i["type"] == "Passive":
