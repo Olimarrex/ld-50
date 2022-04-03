@@ -26,7 +26,7 @@ tile_data = PoolIntArray( -1703947, 15, 0, -1638410, 15, 0, -1572873, 15, 0, -15
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 128, 128 )
 format = 1
-tile_data = PoolIntArray( -131072, 12, 0, -65535, 12, 0 )
+tile_data = PoolIntArray( -1376273, 21, 0, -131072, 12, 0, -65535, 12, 0 )
 
 [node name="TileMap5" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
