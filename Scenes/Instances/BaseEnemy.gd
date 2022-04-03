@@ -9,8 +9,10 @@ export (NodePath) var spright = null
 
 var velocity = Vector2()
 var health;
+var pickupScene
 
 func _ready():
+	pickupScene = load("res://Scenes/Instances/clock.tscn").instance()
 	health = maxHealth;
 	get_node("enemyHealthBar").max_value = maxHealth;
 	get_node("enemyHealthBar").value = maxHealth;
@@ -35,11 +37,10 @@ func takeDamage(dmg):
 	health -= dmg
 	$enemyHealthBar.value = health
 	if health <= 0:
-		die()
-		
+		call_deferred("die")
+
 func die():
-	var pickup = load("res://Scenes/Instances/clock.tscn").instance()
-	pickup.time = pickUpTime
-	pickup.get_node("Area2D").set_position(position + get_parent().position)
-	get_parent().get_parent().add_child(pickup)
-	get_parent().queue_free()
+	pickupScene.time = pickUpTime
+	pickupScene.get_node("Area2D").set_position(position + get_parent().position)
+	get_parent().get_parent().add_child(pickupScene)
+	get_parent().free()
