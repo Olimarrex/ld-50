@@ -47,7 +47,7 @@ volume_db = -14.455
 
 [node name="Abilities" type="Node2D" parent="KinematicBody2D"]
 script = ExtResource( 4 )
-activeAbility = "Nuke"
+activeAbility = "TimeSuck"
 
 [node name="IceBurst" type="Node2D" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 5 )

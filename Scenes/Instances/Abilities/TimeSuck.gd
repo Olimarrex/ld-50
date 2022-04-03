@@ -9,4 +9,4 @@ var cooldown = 0
 func shootAbility():
 	var pick_ups = get_tree().get_nodes_in_group("pick_up")
 	for i in pick_ups:
-		i.targit = get_parent().get_parent()
+		i.target = get_parent().get_parent()
