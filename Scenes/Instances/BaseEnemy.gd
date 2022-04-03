@@ -26,10 +26,7 @@ func _process(_delta):
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("player"):
 			inflictDamage(collision)
-	if dir[0]>0:
-		get_node(spright).set_flip_h( false )
-	else:
-		get_node(spright).set_flip_h( true )
+	get_node(spright).set_flip_h(dir[0] < 0);
 
 func inflictDamage(_entity):
 	get_parent().get_parent().get_node("Player/KinematicBody2D").takeDamage(damage)

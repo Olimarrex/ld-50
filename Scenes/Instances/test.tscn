@@ -22,7 +22,7 @@ time = 17
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="playerUI" parent="CanvasLayer" instance=ExtResource( 2 )]
-startingTime = 15
+startingTime = 1000
 
 [node name="Icon" type="Sprite" parent="."]
 position = Vector2( 1.99994, 206 )

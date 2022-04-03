@@ -31,20 +31,29 @@ func get_input():
 		velocity.y += 1
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
-	velocity = velocity.normalized() * speed
+	velocity = velocity.normalized() * speed * (1 + countPassives("Movement+") / 15.0);
 	if Input.is_action_pressed("shoot"):
 		attemptShoot()
 
 	if Input.is_action_pressed("ability"):
 		attemptAbility()
 
+func countPassives(passiveName):
+	var playerUI = get_tree().get_current_scene().get_node("CanvasLayer/playerUI")
+	var count = 0;
+	for passive in playerUI.currentPassives:
+		if passive == passiveName:
+			count += 1;
+	return count;
+
 func attemptShoot():
 	if currentShootCooldown <= 0:
-		currentShootCooldown = shootCooldown
+		currentShootCooldown = shootCooldown / (1 + float(countPassives("Attack Speed+") / 10.0));
 		shoot()
 
 func shoot():
 	var bull = bullet.instance()
+	bull.get_child(0).damage = 50 * (1 + float(countPassives("Damage+")));
 	bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
 	bull.position = self.position
 	get_parent().add_child(bull)

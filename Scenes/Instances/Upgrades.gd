@@ -49,6 +49,7 @@ export var upgrades = [
 	},
 	{
 		"name": "Attack Speed+",
+		"key": "attackSpeed",
 		"type": "Passive",
 		"cost": 10,
 		"resource": "res://Art/Sprites/IceBurst.png"
