@@ -16,6 +16,8 @@ func _ready():
 	health = maxHealth;
 	get_node("enemyHealthBar").max_value = maxHealth;
 	get_node("enemyHealthBar").value = maxHealth;
+	if spright == null:
+		print("Error: Enemy with name '" + get_parent().name + "' is missing reference to its sprite")
 
 func _process(_delta):
 	var dir = global_position.direction_to(get_parent().get_parent().get_node("Player/KinematicBody2D").get_position());
