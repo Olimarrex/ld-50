@@ -66,10 +66,7 @@ func _process(_delta):
 
 func die():
 	print("Player has died")
-	var deathScreenInstance =  deathScreenUI.instance()
-	deathScreenInstance.displayDeathScreen()
-	get_parent().get_parent().get_node("CanvasLayer").add_child(deathScreenInstance)
-	get_tree().paused = true
+	get_tree().change_scene("res://Scenes/Instances/deathScreen.tscn")
 
 func _physics_process(delta):
 	if currentShootCooldown > 0:
