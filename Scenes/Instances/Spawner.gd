@@ -7,6 +7,7 @@ export var enemyNodes = {
 	"ghost": "res://Scenes/Instances/Ghost.tscn",
 	"zombo": "res://Scenes/Instances/Zombie.tscn"
 };
+var power = 1
 var loadedEnemies = {};
 var waves = [
 	{
@@ -163,6 +164,9 @@ func startNextWave():
 		wave = waves[currentWave];
 	else:
 		wave = waves[waves.size() - 1];
+		power = currentWave - waves.size()
+		print(power)
+		#wave["gobbo"] *= 1.1;
 	for key in wave:
 		if key == "time":
 			$Timer.stop()
@@ -183,4 +187,5 @@ func spawn(key, count):
 		var rand = deg2rad(rand_range(0, 360));
 		var instance = nodeToSpawn.instance();
 		instance.get_node('KinematicBody2D').set_position(cameraPos + (Vector2(1, 0).rotated(rand) * rand_range(1000, 1200)));
+		instance.get_node('KinematicBody2D').setPower(power)
 		get_parent().add_child(instance);
