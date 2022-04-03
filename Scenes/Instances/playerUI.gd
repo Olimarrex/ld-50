@@ -31,7 +31,7 @@ func updateTime(amount):
 	if currentTime <= 0:
 		self.get_parent().get_parent().call("death")
 		timer.stop()
-		print('game over goes here.');
+
 
 var currentShop = ["Upgrade #1", "Upgrade #2", "Upgrade #3"]
 onready var array = self.get_parent().get_parent().get_node("Player/KinematicBody2D/Upgrades").upgrades
