@@ -19,7 +19,9 @@ func _ready():
 
 func _physics_process(_delta):
 	var dir = global_position.direction_to(get_parent().get_parent().get_node("Player/KinematicBody2D").get_position());
-	velocity = move_and_slide(dir * speed)
+	velocity += ((dir * speed) / 10);
+	velocity /= 1.05;
+	velocity = move_and_slide(velocity)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.is_in_group("player"):

@@ -13,7 +13,8 @@ func _physics_process(delta):
 
 func _on_Bullet_body_entered(body):
 	if body.is_in_group("mobs"):
-		body.takeDamage(damage)
+		body.takeDamage(damage);
+		body.velocity += Vector2(derecshon[0] * speed / 2, derecshon[1] * speed / 2);
 		entetiesHit += 1
 		if entetiesHit == penetration: 
 			die()

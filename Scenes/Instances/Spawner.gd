@@ -7,33 +7,33 @@ export var enemyNodes = {
 };
 var loadedEnemies = {};
 var waves = [
+#	{
+#		"gobbo": 5
+#	},
+#	{
+#		"gobbo": 10
+#	},
+#	{
+#		"gobbo": 15,
+#		"ghost": 15
+#	},
+#	{
+#		"gobbo": 10
+#	},
+#	{
+#		"gobbo": 70
+#	},
+#	{
+#		"gobbo": 10
+#	},
 	{
-		"gobbo": 5
-	},
-	{
-		"gobbo": 10
-	},
-	{
-		"gobbo": 15,
-		"ghost": 15
-	},
-	{
-		"gobbo": 10
-	},
-	{
-		"gobbo": 70
-	},
-	{
-		"gobbo": 10
-	},
-	{
-		"gobbo": 60,
+		"gobbo": 260,
 		"ghost": 100,
 	},
-	{
-		"gobbo": 60,
-		"ghost": 100,
-	}
+#	{
+#		"gobbo": 60,
+#		"ghost": 100,
+#	}
 ];
 
 func _ready():
@@ -57,7 +57,7 @@ func _on_Timer_timeout():
 func spawn(key, count):
 	var cameraPos = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
 	var nodeToSpawn = loadedEnemies[key];
-	for i in range(1, count):
+	for _i in range(1, count):
 		var rand = deg2rad(rand_range(0, 360));
 		var instance = nodeToSpawn.instance();
 		instance.get_node('KinematicBody2D').set_position(cameraPos + (Vector2(1, 0).rotated(rand) * rand_range(1000, 1200)));
