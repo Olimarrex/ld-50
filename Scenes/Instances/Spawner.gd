@@ -7,33 +7,33 @@ export var enemyNodes = {
 };
 var loadedEnemies = {};
 var waves = [
-#	{
-#		"gobbo": 5
-#	},
-#	{
-#		"gobbo": 10
-#	},
-#	{
-#		"gobbo": 15,
-#		"ghost": 15
-#	},
-#	{
-#		"gobbo": 10
-#	},
-#	{
-#		"gobbo": 70
-#	},
-#	{
-#		"gobbo": 10
-#	},
+	{
+		"gobbo": 5
+	},
+	{
+		"gobbo": 10
+	},
+	{
+		"gobbo": 15,
+		"ghost": 15
+	},
+	{
+		"gobbo": 10
+	},
+	{
+		"gobbo": 70
+	},
+	{
+		"gobbo": 10
+	},
 	{
 		"gobbo": 500,
 		"ghost": 500,
 	},
-#	{
-#		"gobbo": 60,
-#		"ghost": 100,
-#	}
+	{
+		"gobbo": 60,
+		"ghost": 100,
+	}
 ];
 
 func _ready():

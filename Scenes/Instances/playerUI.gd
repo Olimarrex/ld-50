@@ -9,6 +9,7 @@ var seconds
 
 
 func _ready():
+	currentTime = startingTime;
 	randomize()
 	$Shop.hide()
 	timer = Timer.new()
@@ -22,11 +23,7 @@ func _ready():
 	generateOption3()
 
 func countdown():
-	if currentTime == null:
-		currentTime = startingTime
-		updateTime(-1);
-	else:
-		updateTime(-1);
+	updateTime(-1);
 
 func updateTime(amount):
 	currentTime = max(currentTime + amount, 0);
