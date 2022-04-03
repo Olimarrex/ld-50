@@ -1,6 +1,6 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=49 format=2]
 
-[ext_resource path="res://Art/UI/passiveEmpty.png" type="Texture" id=1]
+[ext_resource path="res://Art/Sprites/CooldownBig.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
 [ext_resource path="res://Art/UI/healthBarProgress.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Instances/playerUI.gd" type="Script" id=4]
@@ -27,6 +27,10 @@
 [ext_resource path="res://Art/UI/bossHealthBarBorder.png" type="Texture" id=25]
 [ext_resource path="res://Art/UI/bossHealthBarProgress.png" type="Texture" id=26]
 [ext_resource path="res://Art/UI/bossHealthBarUnder.png" type="Texture" id=27]
+[ext_resource path="res://Art/Sprites/damageUpgradeBig.png" type="Texture" id=28]
+[ext_resource path="res://Art/Sprites/movementUpgradeBig.png" type="Texture" id=29]
+[ext_resource path="res://Art/Sprites/AttackSpeedUpBig.png" type="Texture" id=30]
+[ext_resource path="res://Art/Sprites/TimeSaveBig.png" type="Texture" id=31]
 
 [sub_resource type="DynamicFont" id=17]
 size = 14
@@ -503,7 +507,7 @@ margin_bottom = 100.0
 [node name="icon1" type="TextureRect" parent="HBoxContainer/VBoxContainer/Movement+"]
 margin_right = 76.0
 margin_bottom = 76.0
-texture = ExtResource( 1 )
+texture = ExtResource( 29 )
 
 [node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Movement+"]
 margin_left = 80.0
@@ -553,7 +557,7 @@ margin_bottom = 272.0
 [node name="icon3" type="TextureRect" parent="HBoxContainer/VBoxContainer/Damage+"]
 margin_right = 76.0
 margin_bottom = 76.0
-texture = ExtResource( 1 )
+texture = ExtResource( 28 )
 
 [node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Damage+"]
 margin_left = 80.0
@@ -578,7 +582,7 @@ margin_bottom = 358.0
 [node name="icon4" type="TextureRect" parent="HBoxContainer/VBoxContainer/Attack Speed+"]
 margin_right = 76.0
 margin_bottom = 76.0
-texture = ExtResource( 1 )
+texture = ExtResource( 30 )
 
 [node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Attack Speed+"]
 margin_left = 80.0
@@ -603,7 +607,7 @@ margin_bottom = 444.0
 [node name="icon5" type="TextureRect" parent="HBoxContainer/VBoxContainer/Time Save"]
 margin_right = 76.0
 margin_bottom = 76.0
-texture = ExtResource( 1 )
+texture = ExtResource( 31 )
 
 [node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Time Save"]
 margin_left = 80.0
