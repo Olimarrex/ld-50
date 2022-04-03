@@ -27,8 +27,8 @@ var waves = [
 #		"gobbo": 10
 #	},
 	{
-		"gobbo": 260,
-		"ghost": 100,
+		"gobbo": 500,
+		"ghost": 500,
 	},
 #	{
 #		"gobbo": 60,

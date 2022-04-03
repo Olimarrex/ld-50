@@ -26,6 +26,7 @@ speed = 250
 shootCooldown = 0.08
 
 [node name="pickup" type="Area2D" parent="KinematicBody2D"]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/pickup"]
 shape = SubResource( 1 )
