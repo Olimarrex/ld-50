@@ -30,7 +30,7 @@
 [ext_resource path="res://Art/Sprites/WallTurn3.png" type="Texture" id=28]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 480, 1184, 224, 1056, 832, 704, 1056, 800 )
+points = PoolVector2Array( 480, 1248, 192, 1120, 832, 704, 1088, 832 )
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 128, 0, 128, 32, 96, 64, 128, 96, 128, 128, 96, 128, 64, 96, 64, 32, 96, 0 )
