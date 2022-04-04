@@ -131,6 +131,13 @@ var waves = [
 	{
 		"countbanks": 1,
 		"time": 20
+	},
+	{
+		"skeleto": 40,
+		"gobbo": 100,
+		"ghost": 100,
+		"zombo": 100,
+		"time": 20
 	}
 ];
 
@@ -184,6 +191,12 @@ func startNextWave():
 		else:
 			spawn(key, wave[key]);
 	currentWave += 1;
+	if currentWave == 21:
+		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").show()
+		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar/bossName").text = "COUNT BANKS"
+	elif currentWave == 22:
+		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").hide()
+
 	var globbo = get_tree().get_nodes_in_group("Globbo")
 	var gosts = get_tree().get_nodes_in_group("Ghost")
 	var zombos = get_tree().get_nodes_in_group("Zombo")
