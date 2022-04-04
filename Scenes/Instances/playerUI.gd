@@ -169,10 +169,10 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 							player.get_node("pickup/CollisionShape2D").scale = Vector2(currentPassives.count(i["name"])+1, currentPassives.count(i["name"])+1)
 						else:
 							print("no player some how: " + str(player))
-			generateOption(optTitle, optCost, optUseCost, optSprite);
+				generateOption(optTitle, optCost, optUseCost, optSprite);
+				upgradesBought += 1
+				updatePrices()
 			break;
-	upgradesBought += 1
-	updatePrices()
 
 func _process(_delta):
 	Autoload.time = currentTime
