@@ -36,7 +36,7 @@ var waves = [
 		"gobbo": 5,
 		"ghost": 5,
 		"zombo": 1,
-		"time": 15
+		"time": 20
 	},
 	{
 		"gobbo": 10,
@@ -47,56 +47,56 @@ var waves = [
 		"gobbo": 5,
 		"ghost": 5,
 		"zombo": 10,
-		"time": 20
+		"time": 25
 	},
 	{
 		"gobbo": 5,
 		"ghost": 5,
 		"zombo": 15,
-		"time": 20
+		"time": 25
 	},
 	{
 		"gobbo": 10,
 		"ghost": 10,
 		"zombo": 10,
-		"time": 20
+		"time": 25
 	},
 	{
 		"gobbo": 5,
 		"ghost": 25,
 		"zombo": 5,
-		"eyeo": 25,
-		"time": 20
+		"eyeo": 50,
+		"time": 25
 	},
 	{
 		"gobbo": 40,
 		"ghost": 5,
-		"time": 25
+		"time": 30
 	},
 	{
 		"gobbo": 0,
 		"ghost": 5,
 		"zombo": 40,
-		"time": 25
+		"time": 30
 	},
 	{
 		"gobbo": 5,
 		"ghost": 50,
 		"zombo": 5,
-		"time": 20
+		"time": 30
 	},
 	{
 		"gobbo": 30,
 		"ghost": 30,
 		"zombo": 30,
-		"time": 20
+		"time": 25
 	},
 	{
 		"gobbo": 10,
 		"ghost": 50,
 		"zombo": 10,
-		"eyeo": 50,
-		"time": 20
+		"eyeo": 100,
+		"time": 25
 	},
 	{
 		"gobbo": 10,
@@ -124,7 +124,6 @@ var waves = [
 		"ghost": 30,
 		"zombo": 80,
 		"skeleto": 50,
-		"eyeo": 100,
 		"time": 30
 	},
 	{

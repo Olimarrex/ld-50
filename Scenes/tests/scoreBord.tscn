@@ -84,7 +84,7 @@ margin_right = 800.0
 margin_bottom = 55.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -100,7 +100,7 @@ margin_right = 800.0
 margin_bottom = 92.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -116,7 +116,7 @@ margin_right = 800.0
 margin_bottom = 129.0
 custom_colors/font_color = Color( 0.992157, 0.827451, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -132,7 +132,7 @@ margin_right = 800.0
 margin_bottom = 166.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -148,7 +148,7 @@ margin_right = 800.0
 margin_bottom = 203.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -164,7 +164,7 @@ margin_right = 800.0
 margin_bottom = 240.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -180,7 +180,7 @@ margin_right = 800.0
 margin_bottom = 277.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -196,7 +196,7 @@ margin_right = 800.0
 margin_bottom = 314.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -212,7 +212,7 @@ margin_right = 800.0
 margin_bottom = 351.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
@@ -228,7 +228,7 @@ margin_right = 800.0
 margin_bottom = 388.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "algodoolge : 100"
+text = "None"
 align = 1
 valign = 1
 
