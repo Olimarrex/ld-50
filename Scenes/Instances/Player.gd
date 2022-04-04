@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
+export (int) var speed = 100
 export (float) var shootCooldown = 0.06 # Time in seconds in between each shots. Minimum time is one bullet per frame.
 
 var bullet
@@ -30,7 +30,7 @@ func get_input():
 		velocity.y += 1
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
-	velocity = velocity.normalized() * speed * (1 + countPassives("Movement+") / 15.0);
+	velocity = velocity.normalized() * speed * (1 + countPassives("Movement+") / 25.0);
 	if Input.is_action_pressed("shoot"):
 		attemptShoot()
 
