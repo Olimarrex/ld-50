@@ -123,7 +123,7 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 					$abilityBar/abilityCost.text = "Cost: " + str(i["useCost"])
 					if $abilityBar.timer != null:
 						$abilityBar.timer.stop()
-						if currentAbility.cooldown > 0:
+						if self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities/" + str(currentAbility)).abilityCooldown > 0:
 							$abilityBar.value = (currentAbility.cooldown)/(self.get_parent().get_parent().get_node("Player/KinematicBody2D/Abilities/" + str(currentAbility)).abilityCooldown) * 100
 				elif i["type"] == "Passive":
 					currentPassives.append(i["name"])
