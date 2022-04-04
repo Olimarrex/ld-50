@@ -55,6 +55,9 @@ func knockback(dir):
 
 func die():
 	pickupScene.setTime(pickUpTime)
+	if(get_parent().name == "EyeBoss" or get_parent().name == "CountBanks"):
+		var playerUI = get_tree().get_current_scene().get_node("CanvasLayer/playerUI")
+		playerUI.get_node("bossHealthBar").hide();
 	pickupScene.get_node("Area2D").set_position(position + get_parent().position)
 	get_parent().get_parent().add_child(pickupScene)
 	get_parent().free()

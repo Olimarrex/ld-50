@@ -80,7 +80,6 @@ func generateOption(optTitle, optCost, optUseCost, optSprite):
 	currentShop.append(chosenUpgrade["name"])
 	optTitle.text = chosenUpgrade["name"]
 	var newCost = getCost(chosenUpgrade["cost"]);
-	print(chosenUpgrade)
 	optCost.text = str(newCost) + " Seconds"
 	if chosenUpgrade["type"] == "Ability":
 		optUseCost.text = "Use Cost: " + str(chosenUpgrade["useCost"])
@@ -100,12 +99,10 @@ func getTimeSaveDivision():
 	
 func getCost(currCost):
 	var cost = round((currCost + (upgradesBought * Autoload.upgradeCostScale)) / getTimeSaveDivision());
-	print("abilityCost = " + str(cost))
 	return cost
 
 func getRefreshCost():	
 	var cost = round((startingRefreshCost + (Autoload.time / 60 * Autoload.refreshCostScale)) / getTimeSaveDivision())
-	print("refreshCost = " + str(cost))
 	return cost 
 
 
@@ -126,7 +123,6 @@ func refreshShop():
 		generateOption3()
 		updateTime(-getRefreshCost())
 		updatePrices()
-		print(currentShop)
 
 func chooseOption1():
 	chooseOption($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1UseCost, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/HBoxContainer/option1Sprite);
@@ -141,7 +137,6 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 	for i in array:
 		if i["name"] == optTitle.text:
 			var newCost = getCost(i["cost"]);
-			print(newCost, i["cost"]);
 			if currentTime > newCost:
 				updateTime(-newCost)
 				if i["type"] == "Ability":

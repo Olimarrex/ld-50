@@ -8,13 +8,13 @@ export var enemyNodes = {
 	"ghost": "res://Scenes/Instances/Ghost.tscn",
 	"zombo": "res://Scenes/Instances/Zombie.tscn",
 	"skeleto": "res://Scenes/Instances/Skeleto.tscn",
-	"countbanks": "res://Scenes/Instances/CountBanks.tscn"
+	"countbanks": "res://Scenes/Instances/CountBanks.tscn",
+	"eyeboss" : "res://Scenes/Instances/EyeoBoss.tscn"
 };
 var power = 1
 var loadedEnemies = {};
 var waves = [
 	{
-
 		"ghost": 5,
 		"time": 15
 	},
@@ -149,7 +149,22 @@ var waves = [
 		"zombo": 100,
 		"eyeo": 100,
 		"time": 15
-	}
+	},
+	{
+		"gobbo": 20,
+		"time": 5
+	},
+	{
+		"eyeboss": 1
+	},
+	{
+		"skeleto": 100,
+		"gobbo": 100,
+		"ghost": 250,
+		"zombo": 100,
+		"eyeo": 100,
+		"time": 15
+	},
 ];
 
 var mobCount
@@ -191,14 +206,15 @@ func startNextWave():
 		wave = waves[waves.size() - 1];
 		power = currentWave - waves.size()
 		
-	if "countbanks" in wave:
+	if "countbanks" in wave or "eyeboss" in wave:
+		var name = "COUNT BANKS"
+		if("eyeboss" in wave):
+			name = "EYEO OF DEATH";
 		self.get_parent().get_node("Player/KinematicBody2D/Abilities/Explosion").shootAbility()
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").show()
-		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar/bossName").text = "COUNT BANKS"
+		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar/bossName").text = name;
 		self.get_parent().get_node("CanvasLayer/playerUI/Shop/startingMusic").stop()
 		self.get_parent().get_node("CanvasLayer/playerUI/Shop/vampireBossMusic").play()
-	else:
-		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").hide()
 		
 	for key in wave:
 		if key == "time":
@@ -214,7 +230,7 @@ func startNextWave():
 	var gosts = get_tree().get_nodes_in_group("Ghost")
 	var zombos = get_tree().get_nodes_in_group("Zombo")
 	var eyeos = get_tree().get_nodes_in_group("Eyeo")
-	print("wave = " + str(currentWave) + ", time = " + str(wave["time"]) + ", gobs = " + str(len(globbo)) + ", ghost = " + str(len(gosts)) + ", zombos = " + str(len(zombos)) + ", eyeos = " + str(len(eyeos)))
+	#print("wave = " + str(currentWave) + ", time = " + str(wave["time"]) + ", gobs = " + str(len(globbo)) + ", ghost = " + str(len(gosts)) + ", zombos = " + str(len(zombos)) + ", eyeos = " + str(len(eyeos)))
 
 func spawn(key, count):
 	var cameraPos = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
@@ -226,7 +242,6 @@ func spawn(key, count):
 
 
 		for i in range(0, count):
-			print("asdasd")
 			var instance = nodeToSpawn.instance();
 			instance.get_node('KinematicBody2D').set_position(Vector2(0, (count/2-i)*50).rotated(randRot) + cameraPos + (Vector2(1, 0).rotated(randRot) * randDis));
 			instance.get_node('KinematicBody2D').dir = Vector2(1, 0).rotated(randRot+deg2rad(180))

@@ -29,7 +29,6 @@ func shootAbility():
 		print("IceBurst can not find player")
 		return
 	
-	print("Fire IceBurst")
 	for i in range(1, bulletCount):
 		var bull = bullet.instance()
 		bull.get_child(0).speed = bulletSpeed + randf() * bulletSpeed / 2 # Speed + up to 50% extra to get a spread
