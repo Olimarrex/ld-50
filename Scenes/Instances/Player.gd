@@ -54,8 +54,9 @@ func attemptShoot():
 func shoot():
 	var bull = bullet.instance()
 	bull.get_child(0).damage = 50 * (1 + float(countPassives("Damage+")/3.0));
-	bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
-	bull.position = self.position
+	var dir = (get_global_mouse_position() - position).normalized();
+	bull.get_child(0).derecshon = dir;
+	bull.position = self.position + dir * 30; 
 	get_parent().add_child(bull)
 	i += 1;
 	$SoundShoot.pitch_scale = 0.4 + sin(i / 3.0) / 10.0;
