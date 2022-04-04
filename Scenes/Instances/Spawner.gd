@@ -238,5 +238,5 @@ func spawn(key, count):
 			var rand = deg2rad(rand_range(0, 360));
 			var instance = nodeToSpawn.instance();
 			instance.get_node('KinematicBody2D').set_position(cameraPos + (Vector2(1, 0).rotated(rand) * rand_range(1000, 2000)));
-			instance.get_node('KinematicBody2D').setPower(power)
+			instance.get_node('KinematicBody2D').setPower(pow(2, power-1))
 			get_parent().add_child(instance);

@@ -27,7 +27,7 @@ func setPower(powerIn):
 	speed *= powerIn
 	damage *= powerIn
 	maxHealth *= powerIn
-	set_modulate(Color(1,1.1-(powerIn/5.0),1.1-(powerIn/5.0)))
+	set_modulate(Color(1,1.1-(powerIn/10.0),1.1-(powerIn/10.0)))
 
 func _process(_delta):
 	if position.distance_squared_to(Vector2.ZERO) > despawnDistanceSquared:
