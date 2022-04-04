@@ -12,9 +12,11 @@ func _process(delta):
 func _input(_event):
 	if playerUI.currentTime != null and playerUI.currentTime > 0:
 		if Input.is_action_just_released("pause"):
-			if get_tree().paused == false: 
+			if get_tree().paused == false:
+				self.get_parent().get_node("EnemyCounters/EnemyCounters/EscTooltip").hide()
 				self.show()
 				get_tree().paused = true
 			else:
+				self.get_parent().get_node("EnemyCounters/EnemyCounters/EscTooltip").show()
 				self.hide()
 				get_tree().paused = false
