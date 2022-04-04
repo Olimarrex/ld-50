@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 750		
+var speed = 500		
 var damage = 50 	# How much damage the bullet inflicts to an entity upon hitting it.
 var penetration = 5 # How many enemies the bullet can hit before it despawns.
 

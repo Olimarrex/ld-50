@@ -5,7 +5,8 @@ export var currentWave = 0;
 export var enemyNodes = {
 	"gobbo": "res://Scenes/Instances/Gobbo.tscn",
 	"ghost": "res://Scenes/Instances/Ghost.tscn",
-	"zombo": "res://Scenes/Instances/Zombie.tscn"
+	"zombo": "res://Scenes/Instances/Zombie.tscn",
+	"skeleto": "res://Scenes/Instances/Skeleto.tscn"
 };
 var power = 1
 var loadedEnemies = {};

@@ -1,8 +1,8 @@
 extends Node
 
 
-export (float) var abilityCooldown = 3
-export (int) var timeCost = 2 
+export (float) var abilityCooldown = 15
+export (int) var timeCost = 30
 
 var cooldown = 0
 
