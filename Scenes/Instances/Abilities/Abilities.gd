@@ -23,5 +23,5 @@ func attemptShoot():
 		current.cooldown = newCooldown;
 		current.shootAbility()
 		get_tree().get_current_scene().get_node("CanvasLayer/playerUI/abilityBar").startCooldown(newCooldown)
-		playerUI.currentTime -= current.timeCost
+		playerUI.updateTime(-current.timeCost);
 
