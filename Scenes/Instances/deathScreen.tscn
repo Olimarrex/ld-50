@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Font/Thempo New St.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/UI/shopBackground.png" type="Texture" id=2]
@@ -12,6 +12,9 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -72,14 +75,60 @@ valign = 1
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 359.0
 margin_right = 866.0
-margin_bottom = 534.0
-rect_min_size = Vector2( 0, 175 )
+margin_bottom = 409.0
+rect_min_size = Vector2( 0, 50 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 413.0
+margin_right = 866.0
+margin_bottom = 493.0
+alignment = 1
+
+[node name="name" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_top = 17.0
+margin_right = 161.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Enter Name: "
+align = 1
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 165.0
+margin_right = 612.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+
+[node name="acceptButton2" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 616.0
+margin_right = 866.0
+margin_bottom = 80.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 3 )
+
+[node name="acceptButtonText" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer/acceptButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Submit"
+align = 1
+valign = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 497.0
+margin_right = 866.0
+margin_bottom = 597.0
+rect_min_size = Vector2( 0, 100 )
 
 [node name="acceptButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
 margin_left = 308.0
-margin_top = 538.0
+margin_top = 601.0
 margin_right = 558.0
-margin_bottom = 618.0
+margin_bottom = 681.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource( 3 )
@@ -99,4 +148,5 @@ volume_db = -5.0
 autoplay = true
 bus = "SFX"
 
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/acceptButton2" to="." method="_on_submit_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/acceptButton" to="." method="restartGame"]
