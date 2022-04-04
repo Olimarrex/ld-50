@@ -11,6 +11,7 @@ var deathScreenUI
 
 func _ready():
 	Autoload.gameScore = 0
+	Autoload.time = 0
 	get_node("Camera2D").make_current ( )
 	bullet = preload("res://Scenes/Instances/bullet.tscn")
 	deathScreenUI = preload("res://Scenes/Instances/deathScreen.tscn")

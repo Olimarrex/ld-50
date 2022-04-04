@@ -1,12 +1,18 @@
 extends Control
 
 export (int) var startingTime = 300
+export (int) var startingRefreshCost = 5
+
 var currentTime = null
 var timer
 var minutes
 var seconds
 
+var refreshLabel
+
 func _ready():
+	refreshLabel = get_node("Shop").get_node("HBoxContainer").get_node("Label")
+	
 	currentTime = startingTime;
 	randomize()
 	$Shop.hide()
@@ -20,6 +26,7 @@ func _ready():
 	timer.set_wait_time(1.0)
 	timer.set_one_shot(false)
 	timer.start()
+	updatePrices()
 	generateOption1()
 	generateOption2()
 	generateOption3()
@@ -30,8 +37,6 @@ func _ready():
 	$bossHealthBar.hide()
 	for i in passiveIcons:
 		i.hide()
-		
-
 
 func countdown():
 	updateTime(-1);
@@ -92,12 +97,25 @@ func countPassive(name):
 func getCost(currCost):
 	return round(currCost / (1 + countPassive("Time Save") / 10.0));
 
+func getRefreshCost():	
+	var cost = round(startingRefreshCost + (Autoload.time / 60 * Autoload.refreshCostScale))
+	print("refreshCost = " + str(cost))
+	return cost 
+
+func updatePrices():
+	Autoload.time = currentTime
+	if getRefreshCost() < 60:
+		refreshLabel.text = str(getRefreshCost()) + " Seconds"
+	else:
+		refreshLabel.text = str(getRefreshCost() / 60) + " Minutes"
+		
 func refreshShop():
-	if currentTime > 5:
+	if currentTime > getRefreshCost():
 		generateOption1()
 		generateOption2()
 		generateOption3()
-		updateTime(-5)
+		updateTime(-getRefreshCost())
+		updatePrices()
 		print(currentShop)
 
 func chooseOption1():
@@ -143,6 +161,7 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 			break;
 
 func _process(_delta):
+	Autoload.time = currentTime
 	var boss = get_tree().get_nodes_in_group("CountBanks")
 	if boss:
 		$bossHealthBar.max_value = boss[0].get_node("KinematicBody2D/enemyHealthBar").max_value
