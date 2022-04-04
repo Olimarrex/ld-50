@@ -757,7 +757,10 @@ margin_right = 150.0
 margin_bottom = 10.0
 rect_min_size = Vector2( 0, 10 )
 
+
 [node name="EscTooltip" type="Label" parent="EnemyCounters/EnemyCounters"]
+[node name="EyeO" type="HBoxContainer" parent="EnemyCounters/EnemyCounters"]
+
 margin_top = 14.0
 margin_right = 150.0
 margin_bottom = 45.0
@@ -776,14 +779,14 @@ margin_top = 63.0
 margin_right = 150.0
 margin_bottom = 94.0
 
-[node name="Eye-O" type="Label" parent="EnemyCounters/EnemyCounters/Eye-O"]
+[node name="EyeO" type="Label" parent="EnemyCounters/EnemyCounters/EyeO"]
 margin_right = 70.0
 margin_bottom = 31.0
 custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
 custom_fonts/font = SubResource( 11 )
 text = "Eye-Os: "
 
-[node name="Count" type="Label" parent="EnemyCounters/EnemyCounters/Eye-O"]
+[node name="Count" type="Label" parent="EnemyCounters/EnemyCounters/EyeO"]
 margin_left = 74.0
 margin_top = 3.0
 margin_right = 84.0
