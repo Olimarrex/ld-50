@@ -18,116 +18,116 @@ var waves = [
 		"zombo": 1,
 		"time": 5
 	},
-	{
-		"gobbo": 2,
-		"ghost": 4,
-		"time": 10
-	},
-	{
-		"gobbo": 4,
-		"ghost": 6,
-		"time": 15
-	},
-	{
-		"gobbo": 0,
-		"ghost": 10,
-		"time": 15
-	},
-	{
-		"gobbo": 0,
-		"ghost": 15,
-		"zombo": 1,
-		"time": 15
-	},
-	{
-		"gobbo": 10,
-		"ghost": 0,
-		"zombo": 5,
-		"time": 20
-	},
-	{
-		"gobbo": 3,
-		"ghost": 3,
-		"zombo": 15,
-		"time": 20
-	},
-	{
-		"gobbo": 4,
-		"ghost": 4,
-		"zombo": 16,
-		"time": 20
-	},
-	{
-		"gobbo": 5,
-		"ghost": 5,
-		"zombo": 18,
-		"time": 20
-	},
-	{
-		"gobbo": 20,
-		"ghost": 20,
-		"zombo": 5,
-		"time": 20
-	},
-	{
-		"gobbo": 40,
-		"ghost": 0,
-		"time": 25
-	},
-	{
-		"gobbo": 0,
-		"ghost": 0,
-		"zombo": 30,
-		"time": 25
-	},
-	{
-		"gobbo": 10,
-		"ghost": 0,
-		"zombo": 30,
-		"time": 10
-	},
-	{
-		"gobbo": 30,
-		"ghost": 30,
-		"zombo": 30,
-		"time": 10
-	},
-	{
-		"gobbo": 10,
-		"ghost": 50,
-		"zombo": 10,
-		"time": 10
-	},
-	{
-		"gobbo": 100,
-		"ghost": 0,
-		"zombo": 0,
-		"time": 15
-	},
-	{
-		"gobbo": 80,
-		"ghost": 0,
-		"zombo": 80,
-		"time": 15
-	},
-	{
-		"gobbo": 50,
-		"ghost": 40,
-		"zombo": 60,
-		"time": 15
-	},
-	{
-		"gobbo": 90,
-		"ghost": 30,
-		"zombo": 80,
-		"time": 20
-	},
-	{
-		"gobbo": 100,
-		"ghost": 100,
-		"zombo": 100,
-		"time": 20
-	},
+#	{
+#		"gobbo": 2,
+#		"ghost": 4,
+#		"time": 10
+#	},
+#	{
+#		"gobbo": 4,
+#		"ghost": 6,
+#		"time": 15
+#	},
+#	{
+#		"gobbo": 0,
+#		"ghost": 10,
+#		"time": 15
+#	},
+#	{
+#		"gobbo": 0,
+#		"ghost": 15,
+#		"zombo": 1,
+#		"time": 15
+#	},
+#	{
+#		"gobbo": 10,
+#		"ghost": 0,
+#		"zombo": 5,
+#		"time": 20
+#	},
+#	{
+#		"gobbo": 3,
+#		"ghost": 3,
+#		"zombo": 15,
+#		"time": 20
+#	},
+#	{
+#		"gobbo": 4,
+#		"ghost": 4,
+#		"zombo": 16,
+#		"time": 20
+#	},
+#	{
+#		"gobbo": 5,
+#		"ghost": 5,
+#		"zombo": 18,
+#		"time": 20
+#	},
+#	{
+#		"gobbo": 20,
+#		"ghost": 20,
+#		"zombo": 5,
+#		"time": 20
+#	},
+#	{
+#		"gobbo": 40,
+#		"ghost": 0,
+#		"time": 25
+#	},
+#	{
+#		"gobbo": 0,
+#		"ghost": 0,
+#		"zombo": 30,
+#		"time": 25
+#	},
+#	{
+#		"gobbo": 10,
+#		"ghost": 0,
+#		"zombo": 30,
+#		"time": 10
+#	},
+#	{
+#		"gobbo": 30,
+#		"ghost": 30,
+#		"zombo": 30,
+#		"time": 10
+#	},
+#	{
+#		"gobbo": 10,
+#		"ghost": 50,
+#		"zombo": 10,
+#		"time": 10
+#	},
+#	{
+#		"gobbo": 100,
+#		"ghost": 0,
+#		"zombo": 0,
+#		"time": 15
+#	},
+#	{
+#		"gobbo": 80,
+#		"ghost": 0,
+#		"zombo": 80,
+#		"time": 15
+#	},
+#	{
+#		"gobbo": 50,
+#		"ghost": 40,
+#		"zombo": 60,
+#		"time": 15
+#	},
+#	{
+#		"gobbo": 90,
+#		"ghost": 30,
+#		"zombo": 80,
+#		"time": 20
+#	},
+#	{
+#		"gobbo": 100,
+#		"ghost": 100,
+#		"zombo": 100,
+#		"time": 20
+#	},
 	{
 		"countbanks": 1,
 		"time": 20
@@ -155,7 +155,7 @@ func _process(delta):
 		startNextWave()
 
 func _on_Timer_timeout():
-	if currentWave == 20:
+	if currentWave == 1:
 		self.get_parent().get_node("Player/KinematicBody2D/Abilities/Explosion").shootAbility()
 	startNextWave()
 
@@ -191,12 +191,12 @@ func startNextWave():
 		else:
 			spawn(key, wave[key]);
 	currentWave += 1;
-	if currentWave == 21:
+	if currentWave == 2:
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").show()
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar/bossName").text = "COUNT BANKS"
 		self.get_parent().get_node("CanvasLayer/playerUI/Shop/startingMusic").stop()
 		self.get_parent().get_node("CanvasLayer/playerUI/Shop/vampireBossMusic").play()
-	elif currentWave == 22:
+	elif currentWave == 3:
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").hide()
 
 	var globbo = get_tree().get_nodes_in_group("Globbo")
