@@ -38,10 +38,6 @@ func updateTime(amount):
 	minutes = int(currentTime/60)
 	seconds = ((float(currentTime)/float(60)) - float(minutes)) * float(60)
 	$timerBackground/Time.text = str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2);
-	if currentTime <= 0:
-		self.get_parent().get_parent().call("death")
-		timer.stop()
-
 
 var currentShop = ["Upgrade #1", "Upgrade #2", "Upgrade #3"]
 onready var array = self.get_parent().get_parent().get_node("Player/KinematicBody2D/Upgrades").upgrades

@@ -28,7 +28,7 @@ func shootAbility():
 	for i in range(1, bulletCount):
 		var bull = bullet.instance()
 		bull.get_child(0).speed = bulletSpeed + randf() * bulletSpeed / 2 # Speed + up to 50% extra to get a spread
-		bull.get_child(0).damage = bulletDamage
+		bull.get_child(0).damage = bulletDamage + (1 + float(get_parent().get_parent().countPassives("Damage+")))
 		bull.get_child(0).penetration = 6
 		bull.get_child(0).derecshon = (get_global_mouse_position() - player.position + Vector2((randf()*2)-1, (randf()*2)-1).normalized() * bulletSpread).normalized() 
 		bull.position = self.position
