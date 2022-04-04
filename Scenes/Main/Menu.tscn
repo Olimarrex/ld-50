@@ -122,6 +122,34 @@ text = "INSTRUCTIONS"
 align = 1
 valign = 1
 
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 562.0
+margin_right = 745.0
+margin_bottom = 582.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 586.0
+margin_right = 745.0
+margin_bottom = 646.0
+
+[node name="leaderboardButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/CenterContainer3"]
+margin_left = 272.0
+margin_right = 472.0
+margin_bottom = 60.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/CenterContainer3/leaderboardButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5.0
+custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "LEADERBOARD"
+align = 1
+valign = 1
+
 [node name="Toggles2" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -169,6 +197,7 @@ margin_bottom = 94.0
 rect_min_size = Vector2( 0, 5 )
 
 [node name="instructionsBackground" type="TextureRect" parent="."]
+visible = false
 margin_left = 190.0
 margin_right = 1090.0
 margin_bottom = 720.0
@@ -211,6 +240,7 @@ bus = "Music"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/CenterContainer/playButton" to="." method="play"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/CenterContainer2/instructionsButton" to="." method="openInstructions"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CenterContainer3/leaderboardButton" to="." method="showLeaderBoard"]
 [connection signal="toggled" from="Toggles2/Toggles/musicToggle" to="." method="musicToggled"]
 [connection signal="toggled" from="Toggles2/Toggles/sfxToggle" to="." method="sfxToggled"]
 [connection signal="pressed" from="instructionsBackground/close Instructions" to="." method="closeInstructions"]

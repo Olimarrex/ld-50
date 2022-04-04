@@ -27,3 +27,6 @@ func sfxToggled(button_pressed):
 	elif button_pressed == false:
 		AudioServer.set_bus_mute(2, false)
 		Autoload.sfxMuted = false
+
+func showLeaderBoard():
+	get_tree().change_scene("res://Scenes/tests/scoreBord.tscn")

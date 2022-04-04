@@ -14,3 +14,7 @@ func _on_acceptButton_pressed():
 	print("Reloading Scene")
 	get_tree().paused = false
 	get_tree().change_scene("res://Scenes/Instances/test.tscn")
+
+
+func goToMenu():
+	get_tree().change_scene("res://Scenes/Main/Menu.tscn")
