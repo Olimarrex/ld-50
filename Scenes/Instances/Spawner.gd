@@ -6,7 +6,8 @@ export var enemyNodes = {
 	"gobbo": "res://Scenes/Instances/Gobbo.tscn",
 	"ghost": "res://Scenes/Instances/Ghost.tscn",
 	"zombo": "res://Scenes/Instances/Zombie.tscn",
-	"skeleto": "res://Scenes/Instances/Skeleto.tscn"
+	"skeleto": "res://Scenes/Instances/Skeleto.tscn",
+	"countbanks": "res://Scenes/Instances/CountBanks.tscn"
 };
 var power = 1
 var loadedEnemies = {};
@@ -126,6 +127,10 @@ var waves = [
 		"ghost": 100,
 		"zombo": 100,
 		"time": 20
+	},
+	{
+		"countbanks": 1,
+		"time": 20
 	}
 ];
 
@@ -143,6 +148,8 @@ func _process(delta):
 		startNextWave()
 
 func _on_Timer_timeout():
+	if currentWave == 20:
+		self.get_parent().get_node("Player/KinematicBody2D/Abilities/Explosion").shootAbility()
 	startNextWave()
 
 func getMobsCountInWave(waveIndex):
