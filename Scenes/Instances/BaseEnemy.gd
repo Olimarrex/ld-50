@@ -6,7 +6,7 @@ export (int) var maxHealth = 100
 export (int) var pickUpTime = 1
 export (float) var knockbackRes = 1.0
 export (NodePath) var spright = null
-export (int) var power = 1
+
 
 
 var velocity = Vector2()
@@ -22,11 +22,10 @@ func _ready():
 		print("Error: Enemy with name '" + get_parent().name + "' is missing reference to its sprite")
 
 func setPower(powerIn):
-	power = powerIn
-	speed *= power
-	damage *= power
-	maxHealth *= power
-	set_modulate(Color(1,1.1-(power/5.0),1.1-(power/5.0)))
+	speed *= powerIn
+	damage *= powerIn
+	maxHealth *= powerIn
+	set_modulate(Color(1,1.1-(powerIn/5.0),1.1-(powerIn/5.0)))
 
 func _process(_delta):
 	var dir = global_position.direction_to(get_parent().get_parent().get_node("Player/KinematicBody2D").get_position());
@@ -52,6 +51,7 @@ func takeDamage(dmg):
 		call_deferred("die")
 
 func knockback(dir):
+	print(dir)
 	velocity += dir * knockbackRes;
 
 func die():

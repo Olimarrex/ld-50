@@ -23,4 +23,9 @@ func die():
 	get_parent().queue_free()
 	
 func _on_Timer_timeout():
-	get_parent().queue_free()
+	die()
+
+
+func _on_Timer2_timeout():
+	$AnimatedSprite.set_rotation_degrees(rad2deg(derecshon.angle()))
+
