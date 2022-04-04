@@ -52,6 +52,7 @@ drag_margin_v_enabled = true
 [node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D"]
 stream = ExtResource( 3 )
 volume_db = -14.455
+bus = "SFX"
 
 [node name="Abilities" type="Node2D" parent="KinematicBody2D"]
 script = ExtResource( 4 )
@@ -63,6 +64,7 @@ script = ExtResource( 5 )
 [node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D/Abilities/Ice Burst"]
 stream = ExtResource( 3 )
 volume_db = -14.455
+bus = "SFX"
 
 [node name="Time Magnet" type="Node" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 6 )
@@ -72,6 +74,7 @@ script = ExtResource( 7 )
 
 [node name="SoundExplosion" type="AudioStreamPlayer" parent="KinematicBody2D/Abilities/Explosion"]
 stream = ExtResource( 16 )
+bus = "SFX"
 
 [node name="Teleport" type="Node2D" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 8 )

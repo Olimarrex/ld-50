@@ -47,7 +47,7 @@ func countPassives(passiveName):
 
 func attemptShoot():
 	if currentShootCooldown <= 0:
-		currentShootCooldown = shootCooldown / (1 + float(countPassives("Attack Speed+") / 10.0));
+		currentShootCooldown = shootCooldown / (1 + float(countPassives("Attack Speed+") / 3.0));
 		shoot()
 
 func shoot():

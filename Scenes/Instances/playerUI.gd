@@ -10,6 +10,10 @@ func _ready():
 	currentTime = startingTime;
 	randomize()
 	$Shop.hide()
+	if Autoload.musicMuted == true:
+		$Shop/Toggles2/Toggles/musicToggle.pressed = true
+	if Autoload.sfxMuted == true:
+		$Shop/Toggles2/Toggles/sfxToggle.pressed = true
 	timer = Timer.new()
 	self.add_child(timer)
 	timer.connect("timeout", self, "countdown")
@@ -148,3 +152,15 @@ func _on_Node2D_add_time(time):
 	$CoinPickupSound.play();
 	updateTime(time)
 	lastPickup = pickupTime;
+
+func musicToggled(button_pressed):
+	if button_pressed == true:
+		AudioServer.set_bus_mute(1, true)
+	elif button_pressed == false:
+		AudioServer.set_bus_mute(1, false)
+
+func sfxToggled(button_pressed):
+	if button_pressed == true:
+		AudioServer.set_bus_mute(2, true)
+	elif button_pressed == false:
+		AudioServer.set_bus_mute(2, false)

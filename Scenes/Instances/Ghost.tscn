@@ -18,7 +18,7 @@ collision_mask = 0
 script = ExtResource( 2 )
 speed = 100
 damage = 2
-pickUpTime = 5
+pickUpTime = 2
 spright = NodePath("Ghost")
 
 [node name="Ghost" type="Sprite" parent="KinematicBody2D"]
@@ -42,3 +42,4 @@ texture_progress = ExtResource( 3 )
 [node name="SoundHitHurt" type="AudioStreamPlayer" parent="KinematicBody2D"]
 stream = ExtResource( 6 )
 volume_db = -12.0
+bus = "SFX"

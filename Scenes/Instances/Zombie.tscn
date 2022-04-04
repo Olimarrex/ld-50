@@ -16,6 +16,7 @@ radius = 12.0416
 script = ExtResource( 2 )
 speed = 60
 maxHealth = 1000
+pickUpTime = 5
 knockbackRes = 0.2
 spright = NodePath("Sprite")
 
@@ -39,3 +40,4 @@ texture_progress = ExtResource( 3 )
 [node name="SoundHitHurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -12.0
+bus = "SFX"
