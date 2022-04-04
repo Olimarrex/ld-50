@@ -73,7 +73,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 10 )
-frame = 5
+frame = 2
 playing = true
 offset = Vector2( -14, 1 )
 flip_h = true

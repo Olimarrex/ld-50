@@ -15,7 +15,6 @@ var power = 1
 var loadedEnemies = {};
 var waves = [
 	{
-		"eyeboss": 1,
 		"ghost": 5,
 		"time": 15
 	},
@@ -150,7 +149,22 @@ var waves = [
 		"zombo": 100,
 		"eyeo": 100,
 		"time": 15
-	}
+	},
+	{
+		"gobbo": 20,
+		"time": 5
+	},
+	{
+		"eyeboss": 1
+	},
+	{
+		"skeleto": 100,
+		"gobbo": 100,
+		"ghost": 250,
+		"zombo": 100,
+		"eyeo": 100,
+		"time": 15
+	},
 ];
 
 var mobCount
