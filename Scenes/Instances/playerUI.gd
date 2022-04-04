@@ -134,6 +134,10 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 			generateOption(optTitle, optCost, optUseCost, optSprite);
 			break;
 
+func _process(_delta):
+	if $bossHealthBar.visible == true:
+		$bossHealthBar.value == int(self.get_parent().get_parent().get_node("CountBanks/enemyHealthBar").value)
+
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;
 func _on_Node2D_add_time(time):

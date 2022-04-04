@@ -194,6 +194,8 @@ func startNextWave():
 	if currentWave == 21:
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").show()
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar/bossName").text = "COUNT BANKS"
+		self.get_parent().get_node("CanvasLayer/playerUI/Shop/startingMusic").stop()
+		self.get_parent().get_node("CanvasLayer/playerUI/Shop/vampireBossMusic").play()
 	elif currentWave == 22:
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").hide()
 
