@@ -143,12 +143,12 @@ var waves = [
 		"time": 120
 	},
 	{
-		"skeleto": 40,
+		"skeleto": 100,
 		"gobbo": 100,
-		"ghost": 100,
+		"ghost": 250,
 		"zombo": 100,
 		"eyeo": 100,
-		"time": 20
+		"time": 15
 	}
 ];
 
