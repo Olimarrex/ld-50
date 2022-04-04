@@ -1,6 +1,5 @@
 extends Node
 
-
 export (float) var abilityCooldown = 3
 export (int) var timeCost = 2 
 

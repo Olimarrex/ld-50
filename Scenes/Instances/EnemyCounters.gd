@@ -1,7 +1,5 @@
 extends HBoxContainer
 
-
-
 func _process(delta):
 	$EnemyCounters/Gobbo/Count.text = str(len(get_tree().get_nodes_in_group("Globbo")))
 	$EnemyCounters/Ghosto/Count.text = str(len(get_tree().get_nodes_in_group("Ghost")))

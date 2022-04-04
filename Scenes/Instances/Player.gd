@@ -20,7 +20,6 @@ func _ready():
 		print("Error: Player could not find its playerUI")
 
 func get_input():
-
 	velocity = Vector2()
 	if Input.is_action_pressed("right"):
 		get_node( "Wizo" ).set_flip_h( false )
@@ -35,7 +34,6 @@ func get_input():
 	velocity = velocity.normalized() * speed * (1 + countPassives("Movement+") / 25.0);
 	if Input.is_action_pressed("shoot"):
 		attemptShoot()
-
 	if Input.is_action_pressed("ability"):
 		attemptAbility()
 
@@ -52,6 +50,8 @@ func attemptShoot():
 		currentShootCooldown = shootCooldown / (1 + float(countPassives("Attack Speed+") / 3.0));
 		shoot()
 
+var i = 0;
+
 func shoot():
 	var bull = bullet.instance()
 	bull.get_child(0).damage = 50 * (1 + float(countPassives("Damage+")/3.0));
@@ -62,7 +62,6 @@ func shoot():
 	i += 1;
 	$SoundShoot.pitch_scale = 0.4 + sin(i / 3.0) / 10.0;
 	$SoundShoot.play();
-var i = 0;
 
 func attemptAbility():
 	get_node("Abilities").attemptShoot()
@@ -93,11 +92,6 @@ func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 
-
 func _on_pickup_area_entered(collision):
 	if collision.is_in_group("pick_up"):
 		collision.target = self
-		
-
-
-

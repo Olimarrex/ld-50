@@ -11,8 +11,10 @@ export var enemyNodes = {
 	"countbanks": "res://Scenes/Instances/CountBanks.tscn",
 	"eyeboss" : "res://Scenes/Instances/EyeoBoss.tscn"
 };
+
 var power = 1
 var loadedEnemies = {};
+
 var waves = [
 	{
 		"ghost": 5,
@@ -197,14 +199,12 @@ func startNextWave():
 		$Timer.wait_time = 3
 		$Timer.start()
 		return
-		
 	var wave;
 	if(currentWave < waves.size()):
 		wave = waves[currentWave];
 	else:
 		wave = waves[waves.size() - 1];
 		power = currentWave - waves.size()
-		
 	if "countbanks" in wave or "eyeboss" in wave:
 		var name = "COUNT BANKS"
 		if("eyeboss" in wave):
@@ -214,7 +214,6 @@ func startNextWave():
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar/bossName").text = name;
 		self.get_parent().get_node("CanvasLayer/playerUI/Shop/startingMusic").stop()
 		self.get_parent().get_node("CanvasLayer/playerUI/Shop/vampireBossMusic").play()
-		
 	for key in wave:
 		if key == "time":
 			$Timer.stop()
@@ -223,30 +222,23 @@ func startNextWave():
 		else:
 			spawn(key, wave[key]);
 	currentWave += 1;
-
-
 	var globbo = get_tree().get_nodes_in_group("Globbo")
 	var gosts = get_tree().get_nodes_in_group("Ghost")
 	var zombos = get_tree().get_nodes_in_group("Zombo")
 	var eyeos = get_tree().get_nodes_in_group("Eyeo")
-	#print("wave = " + str(currentWave) + ", time = " + str(wave["time"]) + ", gobs = " + str(len(globbo)) + ", ghost = " + str(len(gosts)) + ", zombos = " + str(len(zombos)) + ", eyeos = " + str(len(eyeos)))
 
 func spawn(key, count):
 	var cameraPos = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
 	var nodeToSpawn = loadedEnemies[key];
-	
-	if 	key == "eyeo":
+	if key == "eyeo":
 		var randRot = deg2rad(rand_range(0, 360));
 		var randDis = rand_range(1000, 1200)
-
-
 		for i in range(0, count):
 			var instance = nodeToSpawn.instance();
 			instance.get_node('KinematicBody2D').set_position(Vector2(0, (count/2-i)*50).rotated(randRot) + cameraPos + (Vector2(1, 0).rotated(randRot) * randDis));
 			instance.get_node('KinematicBody2D').dir = Vector2(1, 0).rotated(randRot+deg2rad(180))
 			instance.get_node('KinematicBody2D').setPower(power)
 			get_parent().add_child(instance);
-
 	else:
 		for _i in range(0, count):
 			var rand = deg2rad(rand_range(0, 360));

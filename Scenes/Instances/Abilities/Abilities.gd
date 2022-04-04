@@ -1,8 +1,6 @@
 extends Node2D
 
-
 export(String, "Empty", "Ice Burst", "Time Magnet", "Explosion", "Teleport") var activeAbility
-
 
 func _ready():
 	if get_node(activeAbility) == null:
@@ -24,4 +22,3 @@ func attemptShoot():
 		current.shootAbility()
 		get_tree().get_current_scene().get_node("CanvasLayer/playerUI/abilityBar").startCooldown(newCooldown)
 		playerUI.updateTime(-current.timeCost);
-

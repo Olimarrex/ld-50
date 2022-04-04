@@ -8,7 +8,7 @@ func _ready():
 func _process(_delta):
 	if playerUI.currentTime != null and playerUI.currentTime <= 0:
 		self.hide()
-	
+
 func _input(_event):
 	if playerUI.currentTime != null and playerUI.currentTime > 0:
 		if Input.is_action_just_released("pause"):

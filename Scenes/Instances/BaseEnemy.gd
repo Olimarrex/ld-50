@@ -7,8 +7,6 @@ export (int) var pickUpTime = 1
 export (float) var knockbackRes = 1.0
 export (NodePath) var spright = null
 
-
-
 var velocity = Vector2()
 var health;
 var pickupScene

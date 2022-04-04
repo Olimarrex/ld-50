@@ -25,7 +25,5 @@ func die():
 func _on_Timer_timeout():
 	die()
 
-
 func _on_Timer2_timeout():
 	$AnimatedSprite.set_rotation_degrees(rad2deg(derecshon.angle()))
-

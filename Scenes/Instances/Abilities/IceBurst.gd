@@ -7,7 +7,6 @@ export (int) var bulletSpeed = 600
 export (int) var bulletDamage = 200
 export (float) var bulletSpread = 160
 
-
 var cooldown = 0
 var bullet
 var player
@@ -15,7 +14,6 @@ var player
 func _ready():
 	bullet = preload("res://Scenes/Instances/bullet.tscn")
 	player = get_tree().get_current_scene().get_node("Player/KinematicBody2D")
-
 
 func _process(delta):
 	if cooldown >= 0:

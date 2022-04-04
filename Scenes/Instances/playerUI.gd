@@ -13,7 +13,6 @@ var upgradesBought = 0
 
 func _ready():
 	refreshLabel = get_node("Shop").get_node("HBoxContainer").get_node("Label")
-	
 	currentTime = startingTime;
 	randomize()
 	$Shop.hide()
@@ -178,6 +177,7 @@ func _process(_delta):
 
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;
+
 func _on_Node2D_add_time(time):
 	var pickupTime = OS.get_system_time_secs();
 	if pickupTime < lastPickup + 1:
