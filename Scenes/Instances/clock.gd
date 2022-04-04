@@ -16,4 +16,5 @@ func setTime(timeIn):
 func _on_Area2D_pick_up():
 	emit_signal("add_time", time)
 	Autoload.gameScore += time
+	print("gameScore = " + str(Autoload.gameScore))
 

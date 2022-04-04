@@ -13,3 +13,4 @@ func _ready():
 	
 	yield(SilentWolf.Scores.get_high_scores(), "sw_scores_received")
 	print("Scores: " + str(SilentWolf.Scores.scores))
+	SilentWolf.Scores.wipe_leaderboard()

@@ -37,7 +37,6 @@ func get_input():
 		attemptShoot()
 
 	if Input.is_action_pressed("ability"):
-		Autoload.gameScore += 1000
 		attemptAbility()
 
 func countPassives(passiveName):
