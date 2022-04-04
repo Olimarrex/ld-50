@@ -14,9 +14,9 @@ extents = Vector2( 114.5, 61 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="." groups=["mobs"]]
 script = ExtResource( 2 )
-speed = 80
+speed = 500
 damage = 15
-maxHealth = 6500
+maxHealth = 100000
 pickUpTime = 120
 knockbackRes = 0.2
 
