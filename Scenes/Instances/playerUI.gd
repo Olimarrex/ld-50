@@ -25,7 +25,8 @@ func _ready():
 	generateOption3()
 	var passiveIcons = [get_node("HBoxContainer/VBoxContainer/Movement+"),
 	get_node("HBoxContainer/VBoxContainer/Damage+"),get_node("HBoxContainer/VBoxContainer/Cooldown-"),
-	get_node("HBoxContainer/VBoxContainer/Attack Speed+"),get_node("HBoxContainer/VBoxContainer/Time Save")]
+	get_node("HBoxContainer/VBoxContainer/Attack Speed+"),get_node("HBoxContainer/VBoxContainer/Time Save"),
+	get_node("HBoxContainer/VBoxContainer/Pick Up")]
 	$bossHealthBar.hide()
 	for i in passiveIcons:
 		i.hide()
@@ -133,7 +134,7 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 					else:
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
 					if i["name"] == "Pick Up":
-						get_tree().get_nodes_in_group("player")[0].get_node("pickup/CollisionShape2D").Transofm.Scale = currentPassives.count(i["name"])
+						get_tree().get_nodes_in_group("player")[0].get_node("pickup/CollisionShape2D").Transform.Scale = currentPassives.count(i["name"])
 			generateOption(optTitle, optCost, optUseCost, optSprite);
 			break;
 

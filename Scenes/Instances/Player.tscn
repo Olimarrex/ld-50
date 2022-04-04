@@ -18,10 +18,10 @@
 [ext_resource path="res://Sounds/SFX/explosion.wav" type="AudioStream" id=16]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 60.0
+radius = 26.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 23.0868
+radius = 50.0
 
 [node name="Player" type="Node2D" groups=["player"]]
 

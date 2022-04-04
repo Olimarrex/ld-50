@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Art/Sprites/CooldownBig.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/healthBarUnder.png" type="Texture" id=2]
@@ -40,6 +40,7 @@
 [ext_resource path="res://Art/UI/musicToggleHovered.png" type="Texture" id=38]
 [ext_resource path="res://Sounds/Music/ghostings.ogg" type="AudioStream" id=39]
 [ext_resource path="res://Sounds/Music/mysteryboss.ogg" type="AudioStream" id=40]
+[ext_resource path="res://Art/Sprites/PickUpBig.png" type="Texture" id=41]
 
 [sub_resource type="DynamicFont" id=17]
 size = 14
@@ -724,6 +725,31 @@ margin_bottom = 76.0
 texture = ExtResource( 31 )
 
 [node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Time Save"]
+margin_left = 80.0
+margin_top = 22.0
+margin_right = 97.0
+margin_bottom = 53.0
+custom_colors/font_color = Color( 1, 0.835294, 0.254902, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "x1"
+
+[node name="MarginContainer6" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 448.0
+margin_right = 97.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 0, 2 )
+
+[node name="Pick Up" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 454.0
+margin_right = 97.0
+margin_bottom = 530.0
+
+[node name="icon5" type="TextureRect" parent="HBoxContainer/VBoxContainer/Pick Up"]
+margin_right = 76.0
+margin_bottom = 76.0
+texture = ExtResource( 41 )
+
+[node name="Counter" type="Label" parent="HBoxContainer/VBoxContainer/Pick Up"]
 margin_left = 80.0
 margin_top = 22.0
 margin_right = 97.0
