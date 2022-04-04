@@ -25,7 +25,7 @@ func setPower(powerIn):
 	speed *= powerIn
 	damage *= powerIn
 	maxHealth *= powerIn
-	set_modulate(Color(1,1.1-(powerIn/5.0),1.1-(powerIn/5.0)))
+	set_modulate(Color(1,1.1-(powerIn/10.0),1.1-(powerIn/10.0)))
 
 func _process(_delta):
 	var dir = global_position.direction_to(get_parent().get_parent().get_node("Player/KinematicBody2D").get_position());

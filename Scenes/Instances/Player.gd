@@ -55,7 +55,7 @@ func attemptShoot():
 
 func shoot():
 	var bull = bullet.instance()
-	bull.get_child(0).damage = 50 * (1 + float(countPassives("Damage+")));
+	bull.get_child(0).damage = 50 * (1 + float(countPassives("Damage+")/3.0));
 	bull.get_child(0).derecshon = (get_global_mouse_position() - position).normalized()
 	bull.position = self.position
 	get_parent().add_child(bull)
