@@ -15,7 +15,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ld- 50"
-run/main_scene="res://Scenes/Instances/test.tscn"
+run/main_scene="res://Scenes/Main/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
