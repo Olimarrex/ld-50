@@ -213,7 +213,8 @@ func startNextWave():
 	var globbo = get_tree().get_nodes_in_group("Globbo")
 	var gosts = get_tree().get_nodes_in_group("Ghost")
 	var zombos = get_tree().get_nodes_in_group("Zombo")
-	print("wave = " + str(currentWave) + ", time = " + str(wave["time"]) + ", gobs = " + str(len(globbo)) + ", ghost = " + str(len(gosts)) + ", zombos = " + str(len(zombos)))
+	var eyeos = get_tree().get_nodes_in_group("Eyeo")
+	print("wave = " + str(currentWave) + ", time = " + str(wave["time"]) + ", gobs = " + str(len(globbo)) + ", ghost = " + str(len(gosts)) + ", zombos = " + str(len(zombos)) + ", eyeos = " + str(len(eyeos)))
 
 func spawn(key, count):
 	var cameraPos = get_parent().get_node('Player/KinematicBody2D/Camera2D').get_camera_position();
