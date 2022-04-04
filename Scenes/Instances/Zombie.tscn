@@ -7,8 +7,8 @@
 [ext_resource path="res://Art/UI/enemyHealthOver.png" type="Texture" id=5]
 [ext_resource path="res://Sounds/SFX/hitHurt.wav" type="AudioStream" id=6]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 12.0416
+[sub_resource type="CapsuleShape2D" id=1]
+height = 38.0
 
 [node name="Zombie" type="Node2D" groups=["Zombo"]]
 
@@ -21,9 +21,11 @@ knockbackRes = 0.2
 spright = NodePath("Sprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 2, -1 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 1 )
 
