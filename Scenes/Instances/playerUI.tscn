@@ -757,10 +757,7 @@ margin_right = 150.0
 margin_bottom = 10.0
 rect_min_size = Vector2( 0, 10 )
 
-
 [node name="EscTooltip" type="Label" parent="EnemyCounters/EnemyCounters"]
-[node name="EyeO" type="HBoxContainer" parent="EnemyCounters/EnemyCounters"]
-
 margin_top = 14.0
 margin_right = 150.0
 margin_bottom = 45.0
@@ -774,7 +771,7 @@ margin_right = 150.0
 margin_bottom = 59.0
 rect_min_size = Vector2( 0, 10 )
 
-[node name="Eye-O" type="HBoxContainer" parent="EnemyCounters/EnemyCounters"]
+[node name="EyeO" type="HBoxContainer" parent="EnemyCounters/EnemyCounters"]
 margin_top = 63.0
 margin_right = 150.0
 margin_bottom = 94.0
