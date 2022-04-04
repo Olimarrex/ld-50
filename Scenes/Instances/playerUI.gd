@@ -29,6 +29,8 @@ func _ready():
 	$bossHealthBar.hide()
 	for i in passiveIcons:
 		i.hide()
+		
+
 
 func countdown():
 	updateTime(-1);
@@ -135,8 +137,10 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 			break;
 
 func _process(_delta):
-	if $bossHealthBar and $bossHealthBar.visible == true:
-		$bossHealthBar.value == int(self.get_parent().get_parent().get_node("CountBanks/KinematicBody2D/enemyHealthBar").value)
+	var boss = get_tree().get_nodes_in_group("CountBanks")
+	if boss:
+		$bossHealthBar.max_value = boss[0].get_node("KinematicBody2D/enemyHealthBar").max_value
+		$bossHealthBar.value = boss[0].get_node("KinematicBody2D/enemyHealthBar").value
 
 var lastPickup = OS.get_system_time_secs();
 var pickupCount = 1;
