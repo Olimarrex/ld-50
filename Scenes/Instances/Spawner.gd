@@ -14,78 +14,75 @@ var power = 1
 var loadedEnemies = {};
 var waves = [
 	{
-		"gobbo": 2,
-		"ghost": 4,
-		"zombo": 1,
-		"time": 100
-	},
-	{
-		"gobbo": 2,
-		"ghost": 4,
-		"time": 10
-	},
-	{
-		"gobbo": 4,
-		"ghost": 6,
+
+		"ghost": 5,
 		"time": 15
 	},
 	{
-		"gobbo": 0,
 		"ghost": 10,
 		"time": 15
 	},
 	{
-		"gobbo": 0,
+		"gobbo": 2,
 		"ghost": 15,
+		"time": 15
+	},
+	{
+		"gobbo": 5,
+		"ghost": 15,
+		"time": 15
+	},
+	{
+		"gobbo": 5,
+		"ghost": 5,
 		"zombo": 1,
 		"time": 15
 	},
 	{
 		"gobbo": 10,
-		"ghost": 0,
 		"zombo": 5,
-		"time": 20
-	},
-	{
-		"gobbo": 3,
-		"ghost": 3,
-		"zombo": 15,
-		"time": 20
-	},
-	{
-		"gobbo": 4,
-		"ghost": 4,
-		"zombo": 16,
 		"time": 20
 	},
 	{
 		"gobbo": 5,
 		"ghost": 5,
-		"zombo": 18,
+		"zombo": 10,
 		"time": 20
 	},
 	{
-		"gobbo": 20,
-		"ghost": 20,
+		"gobbo": 5,
+		"ghost": 5,
+		"zombo": 15,
+		"time": 20
+	},
+	{
+		"gobbo": 10,
+		"ghost": 10,
+		"zombo": 10,
+		"time": 20
+	},
+	{
+		"gobbo": 5,
+		"ghost": 25,
 		"zombo": 5,
 		"eyeo": 25,
 		"time": 20
 	},
 	{
 		"gobbo": 40,
-		"ghost": 0,
+		"ghost": 5,
 		"time": 25
 	},
 	{
 		"gobbo": 0,
-		"ghost": 0,
-		"zombo": 30,
+		"ghost": 5,
+		"zombo": 40,
 		"time": 25
 	},
 	{
-		"gobbo": 10,
-		"ghost": 0,
-		"zombo": 30,
+		"gobbo": 5,
+		"ghost": 50,
+		"zombo": 5,
 		"time": 20
 	},
 	{
@@ -98,31 +95,35 @@ var waves = [
 		"gobbo": 10,
 		"ghost": 50,
 		"zombo": 10,
-		"eyeo": 55,
+		"eyeo": 50,
 		"time": 20
 	},
 	{
-		"gobbo": 100,
-		"ghost": 0,
-		"zombo": 0,
+		"gobbo": 10,
+		"ghost": 10,
+		"zombo": 25,
+		"skeleto": 10,
 		"time": 25
 	},
 	{
 		"gobbo": 80,
-		"ghost": 0,
+		"ghost": 10,
 		"zombo": 80,
+		"skeleto": 25,
 		"time": 25
 	},
 	{
 		"gobbo": 50,
 		"ghost": 40,
 		"zombo": 60,
+		"skeleto": 25,
 		"time": 25
 	},
 	{
 		"gobbo": 90,
 		"ghost": 30,
 		"zombo": 80,
+		"skeleto": 50,
 		"eyeo": 100,
 		"time": 30
 	},
@@ -130,21 +131,23 @@ var waves = [
 		"gobbo": 100,
 		"ghost": 100,
 		"zombo": 100,
+		"skeleto": 100,
 		"time": 30
 	},
 	{
 		"countbanks": 1,
-		"gobbo": 100,
+		"gobbo": 0,
 		"ghost": 100,
-		"zombo": 100,
-		"skeleto": 100,
-		"time": 30
+		"zombo": 10,
+		"skeleto": 10,
+		"time": 120
 	},
 	{
 		"skeleto": 40,
 		"gobbo": 100,
 		"ghost": 100,
 		"zombo": 100,
+		"eyeo": 100,
 		"time": 20
 	}
 ];
@@ -163,8 +166,6 @@ func _process(delta):
 		startNextWave()
 
 func _on_Timer_timeout():
-	if currentWave == 1:
-		self.get_parent().get_node("Player/KinematicBody2D/Abilities/Explosion").shootAbility()
 	startNextWave()
 
 func getMobsCountInWave(waveIndex):
@@ -190,7 +191,8 @@ func startNextWave():
 		wave = waves[waves.size() - 1];
 		power = currentWave - waves.size()
 		
-	if "countbanks" in wave: 
+	if "countbanks" in wave:
+		self.get_parent().get_node("Player/KinematicBody2D/Abilities/Explosion").shootAbility()
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar").show()
 		self.get_parent().get_node("CanvasLayer/playerUI/bossHealthBar/bossName").text = "COUNT BANKS"
 		self.get_parent().get_node("CanvasLayer/playerUI/Shop/startingMusic").stop()

@@ -70,7 +70,7 @@ bus = "SFX"
 
 [node name="Time Magnet" type="Node" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 6 )
-abilityCooldown = 60.0
+abilityCooldown = 30.0
 timeCost = 30
 
 [node name="Explosion" type="Node" parent="KinematicBody2D/Abilities"]

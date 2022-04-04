@@ -57,3 +57,7 @@ func die():
 	pickupScene.get_node("Area2D").set_position(position + get_parent().position)
 	get_parent().get_parent().add_child(pickupScene)
 	get_parent().free()
+
+
+func _on_Timer_timeout():
+	get_parent().free()
