@@ -134,7 +134,11 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 					else:
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
 					if i["name"] == "Pick Up":
-						get_tree().get_nodes_in_group("player")[0].get_node("pickup/CollisionShape2D").Transform.Scale = currentPassives.count(i["name"])
+						var player = get_tree().get_nodes_in_group("player")[0]
+						if player:
+							player.get_node("pickup/CollisionShape2D").scale = Vector2(currentPassives.count(i["name"])+1, currentPassives.count(i["name"])+1)
+						else:
+							print("no player some how: " + str(player))
 			generateOption(optTitle, optCost, optUseCost, optSprite);
 			break;
 
