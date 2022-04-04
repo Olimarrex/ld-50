@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	var label = get_node("HBoxContainer").get_node("VBoxContainer").get_node("Score")
+	get_node("HBoxContainer").get_node("VBoxContainer").get_node("Score").text = "Score: " + str(Autoload.gameScore)
 
 func restartGame():
 	print("Reloading Scene")
