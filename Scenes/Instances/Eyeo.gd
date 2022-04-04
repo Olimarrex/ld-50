@@ -6,13 +6,13 @@ export (int) var maxHealth = 100
 export (int) var pickUpTime = 1
 export (float) var knockbackRes = 1.0
 export (NodePath) var spright = null
-export (int) var despawnDistance = 1500
+export (int) var despawnDistance = 5000
 
 var despawnDistanceSquared = despawnDistance * despawnDistance
 var dir = Vector2(1,0)
 
 var velocity = Vector2()
-var health;
+var health
 var pickupScene
 
 func _ready():
@@ -32,7 +32,7 @@ func setPower(powerIn):
 func _process(_delta):
 	if position.distance_squared_to(Vector2.ZERO) > despawnDistanceSquared:
 		print("Eyeo despawned from being too far away")
-		die()
+		get_parent().queue_free()
 	velocity += ((dir * speed) / 10)
 	velocity /= 1.05
 	velocity = move_and_slide(velocity)

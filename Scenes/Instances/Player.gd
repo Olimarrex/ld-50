@@ -19,6 +19,7 @@ func _ready():
 		print("Error: Player could not find its playerUI")
 
 func get_input():
+
 	velocity = Vector2()
 	if Input.is_action_pressed("right"):
 		get_node( "Wizo" ).set_flip_h( false )
