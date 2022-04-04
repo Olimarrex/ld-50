@@ -93,17 +93,26 @@ func countPassive(name):
 		if passive == name:
 			count += 1;
 	return count;
+
+func getTimeSaveDivision():
+	return (1 + countPassive("Time Save") / 10.0)
 	
 func getCost(currCost):
-	return round(currCost / (1 + countPassive("Time Save") / 10.0));
+	var cost = round((currCost + (Autoload.gameScore / 60 * Autoload.upgradeCostScale)) / getTimeSaveDivision());
+	print("gameScore = " + str(Autoload.gameScore) + ", abilityCost = " + str(cost))
+	return cost
 
 func getRefreshCost():	
-	var cost = round(startingRefreshCost + (Autoload.time / 60 * Autoload.refreshCostScale))
+	var cost = round((startingRefreshCost + (Autoload.time / 60 * Autoload.refreshCostScale)) / getTimeSaveDivision())
 	print("refreshCost = " + str(cost))
 	return cost 
 
+
 func updatePrices():
 	Autoload.time = currentTime
+	regenerateText($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground1/VBoxContainer/option1Cost);
+	regenerateText($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground2/VBoxContainer/option2Cost);
+	regenerateText($Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Title, $Shop/VBoxContainer/HBoxContainer2/shopOptionBackground3/VBoxContainer/option3Cost);
 	if getRefreshCost() < 60:
 		refreshLabel.text = str(getRefreshCost()) + " Seconds"
 	else:
@@ -159,6 +168,7 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 							print("no player some how: " + str(player))
 			generateOption(optTitle, optCost, optUseCost, optSprite);
 			break;
+	updatePrices()
 
 func _process(_delta):
 	Autoload.time = currentTime
