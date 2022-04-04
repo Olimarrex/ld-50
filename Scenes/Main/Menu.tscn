@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Font/Thempo New St.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Art/UI/menuBackground.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Art/UI/instructionsCloseButtonHovered.png" type="Texture" id=12]
 [ext_resource path="res://Art/UI/instructionsBackground.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Main/Menu.gd" type="Script" id=14]
+[ext_resource path="res://Sounds/Music/funkydungeon.ogg" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -121,51 +122,51 @@ text = "INSTRUCTIONS"
 align = 1
 valign = 1
 
-[node name="Toggles" type="HBoxContainer" parent="."]
+[node name="Toggles2" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1032.0
+margin_top = 626.0
 alignment = 2
 
-[node name="Toggles" type="VBoxContainer" parent="Toggles"]
-margin_left = 184.0
-margin_right = 234.0
-margin_bottom = 720.0
+[node name="Toggles" type="HBoxContainer" parent="Toggles2"]
+margin_top = 35.0
+margin_right = 1280.0
+margin_bottom = 85.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Toggles/Toggles"]
-margin_right = 50.0
-margin_bottom = 10.0
-rect_min_size = Vector2( 0, 10 )
+[node name="MarginContainer2" type="MarginContainer" parent="Toggles2/Toggles"]
+margin_right = 10.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 10, 0 )
 
-[node name="musicToggle" type="TextureButton" parent="Toggles/Toggles"]
-margin_top = 14.0
-margin_right = 50.0
-margin_bottom = 64.0
+[node name="musicToggle" type="TextureButton" parent="Toggles2/Toggles"]
+margin_left = 14.0
+margin_right = 64.0
+margin_bottom = 50.0
 toggle_mode = true
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 5 )
 
-[node name="MarginContainer2" type="MarginContainer" parent="Toggles/Toggles"]
-margin_top = 68.0
-margin_right = 50.0
-margin_bottom = 73.0
-rect_min_size = Vector2( 0, 5 )
+[node name="MarginContainer3" type="MarginContainer" parent="Toggles2/Toggles"]
+margin_left = 68.0
+margin_right = 73.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 5, 0 )
 
-[node name="sfxToggle" type="TextureButton" parent="Toggles/Toggles"]
-margin_top = 77.0
-margin_right = 50.0
-margin_bottom = 127.0
+[node name="sfxToggle" type="TextureButton" parent="Toggles2/Toggles"]
+margin_left = 77.0
+margin_right = 127.0
+margin_bottom = 50.0
 toggle_mode = true
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 9 )
 
-[node name="MarginContainer" type="MarginContainer" parent="Toggles"]
-margin_left = 238.0
-margin_right = 248.0
-margin_bottom = 720.0
-rect_min_size = Vector2( 10, 0 )
+[node name="MarginContainer4" type="MarginContainer" parent="Toggles2"]
+margin_top = 89.0
+margin_right = 1280.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 5 )
 
 [node name="instructionsBackground" type="TextureRect" parent="."]
 margin_left = 190.0
@@ -202,6 +203,14 @@ margin_bottom = 70.0
 texture_normal = ExtResource( 11 )
 texture_hover = ExtResource( 12 )
 
+[node name="menuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -15.0
+autoplay = true
+bus = "Music"
+
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/CenterContainer/playButton" to="." method="play"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/CenterContainer2/instructionsButton" to="." method="openInstructions"]
+[connection signal="toggled" from="Toggles2/Toggles/musicToggle" to="." method="musicToggled"]
+[connection signal="toggled" from="Toggles2/Toggles/sfxToggle" to="." method="sfxToggled"]
 [connection signal="pressed" from="instructionsBackground/close Instructions" to="." method="closeInstructions"]
