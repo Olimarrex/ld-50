@@ -67,7 +67,7 @@ export var upgrades = [
 		"type": "Passive",
 		"cost": 15,
 		"useCost": 0,
-		"resource": "res://Art/Sprites/IceBurst.png",
+		"resource": "res://Art/Sprites/SizeUp.png",
 	},
 #	{
 #		"name": "Time Save",
