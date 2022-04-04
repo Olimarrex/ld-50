@@ -132,6 +132,8 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x1"
 					else:
 						get_node("HBoxContainer/VBoxContainer/" + str(i["name"]) + "/Counter").text = "x" + str(currentPassives.count(i["name"]))
+					if i["name"] == "Pick Up":
+						get_tree().get_nodes_in_group("player")[0].get_node("pickup/CollisionShape2D").Transofm.Scale = currentPassives.count(i["name"])
 			generateOption(optTitle, optCost, optUseCost, optSprite);
 			break;
 
