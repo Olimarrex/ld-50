@@ -9,6 +9,7 @@ var minutes
 var seconds
 
 var refreshLabel
+var upgradesBought = 0
 
 func _ready():
 	refreshLabel = get_node("Shop").get_node("HBoxContainer").get_node("Label")
@@ -98,8 +99,8 @@ func getTimeSaveDivision():
 	return (1 + countPassive("Time Save") / 10.0)
 	
 func getCost(currCost):
-	var cost = round((currCost + (Autoload.gameScore / 60 * Autoload.upgradeCostScale)) / getTimeSaveDivision());
-	print("gameScore = " + str(Autoload.gameScore) + ", abilityCost = " + str(cost))
+	var cost = round((currCost + (upgradesBought * Autoload.upgradeCostScale)) / getTimeSaveDivision());
+	print("abilityCost = " + str(cost))
 	return cost
 
 func getRefreshCost():	
@@ -170,6 +171,7 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 							print("no player some how: " + str(player))
 			generateOption(optTitle, optCost, optUseCost, optSprite);
 			break;
+	upgradesBought += 1
 	updatePrices()
 
 func _process(_delta):
