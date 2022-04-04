@@ -16,6 +16,11 @@ func _ready():
 	bullet = preload("res://Scenes/Instances/bullet.tscn")
 	player = get_tree().get_current_scene().get_node("Player/KinematicBody2D")
 
+
+func _process(delta):
+	if cooldown >= 0:
+		cooldown -= delta
+
 func shootAbility():
 	if bullet == null:
 		print("IceBurst can not find bullet")
