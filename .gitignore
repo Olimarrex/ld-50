@@ -1,4 +1,5 @@
 .build/
+build/
 .import/
 Scenes/Instances/testSceneJon.tscn
 export.cfg
