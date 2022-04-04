@@ -26,59 +26,59 @@ var waves = [
 	{
 		"gobbo": 4,
 		"ghost": 6,
-		"time": 10
+		"time": 15
 	},
 	{
 		"gobbo": 0,
 		"ghost": 10,
-		"time": 10
+		"time": 15
 	},
 	{
 		"gobbo": 0,
 		"ghost": 15,
 		"zombo": 1,
-		"time": 10
+		"time": 15
 	},
 	{
 		"gobbo": 10,
 		"ghost": 0,
 		"zombo": 5,
-		"time": 10
+		"time": 20
 	},
 	{
 		"gobbo": 3,
 		"ghost": 3,
 		"zombo": 15,
-		"time": 10
+		"time": 20
 	},
 	{
 		"gobbo": 4,
 		"ghost": 4,
 		"zombo": 16,
-		"time": 10
+		"time": 20
 	},
 	{
 		"gobbo": 5,
 		"ghost": 5,
 		"zombo": 18,
-		"time": 10
+		"time": 20
 	},
 	{
 		"gobbo": 20,
 		"ghost": 20,
 		"zombo": 5,
-		"time": 10
+		"time": 20
 	},
 	{
 		"gobbo": 40,
 		"ghost": 0,
-		"time": 10
+		"time": 25
 	},
 	{
 		"gobbo": 0,
 		"ghost": 0,
 		"zombo": 30,
-		"time": 10
+		"time": 25
 	},
 	{
 		"gobbo": 10,

@@ -60,6 +60,8 @@ activeAbility = "Empty"
 
 [node name="Ice Burst" type="Node2D" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 5 )
+abilityCooldown = 3.0
+timeCost = 15
 
 [node name="SoundShoot" type="AudioStreamPlayer" parent="KinematicBody2D/Abilities/Ice Burst"]
 stream = ExtResource( 3 )
@@ -68,6 +70,8 @@ bus = "SFX"
 
 [node name="Time Magnet" type="Node" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 6 )
+abilityCooldown = 60.0
+timeCost = 30
 
 [node name="Explosion" type="Node" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 7 )
@@ -78,6 +82,8 @@ bus = "SFX"
 
 [node name="Teleport" type="Node2D" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 8 )
+abilityCooldown = 5.0
+timeCost = 15
 
 [node name="Empty" type="Node" parent="KinematicBody2D/Abilities"]
 script = ExtResource( 10 )

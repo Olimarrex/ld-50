@@ -135,7 +135,7 @@ func chooseOption(optTitle, optCost, optUseCost, optSprite):
 			break;
 
 func _process(_delta):
-	if $bossHealthBar.visible == true:
+	if $bossHealthBar and $bossHealthBar.visible == true:
 		$bossHealthBar.value == int(self.get_parent().get_parent().get_node("CountBanks/KinematicBody2D/enemyHealthBar").value)
 
 var lastPickup = OS.get_system_time_secs();

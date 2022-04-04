@@ -51,7 +51,6 @@ func takeDamage(dmg):
 		call_deferred("die")
 
 func knockback(dir):
-	print(dir)
 	velocity += dir * knockbackRes;
 
 func die():
